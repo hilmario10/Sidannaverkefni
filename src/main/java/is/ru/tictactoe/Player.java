@@ -2,6 +2,7 @@ package is.ru.tictactoe;
 
 
 public class Player {
+	//Variables for player.
 	String nameOfPlayer;
 	int playerID;
 
