@@ -20,4 +20,12 @@ package is.ru.tictactoe;
 		}
 	}
 
+	// Check if move from player is out of bounds.
+	public static boolean LegalMove(int xy){
+			if(xy < 1 || xy > 3){
+			return false;
+		}
+		return true;
+	}
+
 }
