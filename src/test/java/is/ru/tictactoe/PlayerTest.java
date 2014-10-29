@@ -14,6 +14,7 @@ import org.junit.Test;
 			assertEquals("Truman", p.getName());
 		}		
 
+		//Checks if PlayerID is set right
 		@Test
 		public void testsetPlayerID() {
 			

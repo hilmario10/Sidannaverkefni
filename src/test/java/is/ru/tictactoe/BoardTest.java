@@ -5,7 +5,7 @@ import org.junit.Test;
 
 	public class BoardTest {
 		
-		//Checks if the board is 3x3
+		//Checks if Player makes legal move
 		@Test
 		public void testLegalMove() {
 			assertEquals(true, Board.LegalMove(1));
