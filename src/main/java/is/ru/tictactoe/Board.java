@@ -131,8 +131,15 @@ package is.ru.tictactoe;
 		return BOARD[x][y];
 	}
 
+	public void PrintBoard(){
+		for(int i = 0; i < ROW; i++){
+			for(int j = 0; j < COL; j++){
+				System.out.print("| " + BOARD[i][j] + " |");
+			}
+			System.out.println();
+		}
+	}
 	
-
 
 
 }
