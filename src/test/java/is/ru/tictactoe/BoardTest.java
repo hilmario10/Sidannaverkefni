@@ -38,6 +38,7 @@ import org.junit.Test;
 			assertEquals(true,b.CheckIfFree(2,2));
 		}
 
+		//Check if Board is full.
 		@Test
 		public void testCheckIfFull(){
 			Board bFull = new Board();
@@ -55,6 +56,20 @@ import org.junit.Test;
 			bFull.SetMove(1, 2, 1);
 			bFull.SetMove(0, 2, 2);
 			assertEquals(true, bFull.CheckIfFull());
+		}
+
+		@Test
+		public void testGetStateOfField(){
+			Board gState = new Board();
+
+			gState.SetMove(0, 0, 2);
+			gState.SetMove(1, 1, 1);
+			gState.SetMove(0, 2, 2);
+			gState.SetMove(1, 2, 1);
+			assertEquals(1, gState.GetStateOfField(0 ,2));
+			assertEquals(2, gState.GetStateOfField(1 ,1));
+			assertEquals(1, gState.GetStateOfField(2 ,2));
+			assertEquals(2, gState.GetStateOfField(2 ,1));
 
 		}
 }
