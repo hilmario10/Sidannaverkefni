@@ -49,9 +49,16 @@ package is.ru.tictactoe;
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
+							GameLogic.hasMoved = true;
+							CheckIfWon(pID);
+							CheckIfFull();
+							break;
+
 						}
-						CheckIfWon(pID);
-						CheckIfFull();
+						else{
+							System.out.println("P1 This field is occupied");
+							break;
+						}
 					}
 					else{
 						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
@@ -60,14 +67,21 @@ package is.ru.tictactoe;
 				else{
 					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
 				}
-			case 1:  
+			//break;
+			case 1: 
 				if(LegalMove(x)){
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
+							GameLogic.hasMoved = true;
+							CheckIfWon(pID);
+							CheckIfFull();
+							break;
 						}
-						CheckIfWon(pID);
-						CheckIfFull();
+						else{
+							System.out.println(" P2 This field is occupied");
+							break;
+						}
 					}
 					else{
 						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
@@ -76,8 +90,9 @@ package is.ru.tictactoe;
 				else{
 					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
 				}
+			//break;
 		}
-	}
+}
 
 	public boolean CheckIfWon(int pID){
 		switch(pID){

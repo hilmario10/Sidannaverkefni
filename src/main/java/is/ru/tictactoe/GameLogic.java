@@ -10,6 +10,7 @@ public class GameLogic {
 	public static Player one = new Player("", 0);
 	public static Player two = new Player("", 1);
 	public static boolean keepPlaying = true;
+	public static boolean hasMoved = false;
 
 	public static void main(String [] args)
 	{
@@ -26,26 +27,32 @@ public class GameLogic {
 
 		while(keepPlaying){
 			if(whichPlayer == 0){
-				System.out.println(one.getName() + " Please enter your X cord move");
-				int x = in.nextInt();
-				System.out.println(one.getName() + " Please enter your Y cord move");
-				int y = in.nextInt();
-				b.SetMove(one.getPlayerID(), x, y);
-				b.PrintBoard();
-				whichPlayer = 1;
+				while(!hasMoved){
+					System.out.println(one.getName() + " Please enter your X cord move");
+					int x = in.nextInt();
+					System.out.println(one.getName() + " Please enter your Y cord move");
+					int y = in.nextInt();
+					b.SetMove(one.getPlayerID(), x, y);
+					b.PrintBoard();
+				}
+					whichPlayer = 1;
+					//hasMoved = false;
 			}
 			else{
-				System.out.println(two.getName() + " Please enter your X cord move");
-				int x = in.nextInt();
-				System.out.println(two.getName() + " Please enter your Y cord move");
-				int y = in.nextInt();
-				b.SetMove(two.getPlayerID(), x, y);
-				b.PrintBoard();
-				whichPlayer = 0;
+				while(!hasMoved){
+					System.out.println(two.getName() + " Please enter your X cord move");
+					int x = in.nextInt();
+					System.out.println(two.getName() + " Please enter your Y cord move");
+					int y = in.nextInt();
+					b.SetMove(two.getPlayerID(), x, y);
+					b.PrintBoard();
+				}
+					whichPlayer = 0;
+					//hasMoved = false;
 			}
+			hasMoved = false;
 		}
 		System.out.println("Congrats you have won the game");
-
-
 	}
+
 }
