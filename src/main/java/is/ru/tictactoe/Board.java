@@ -45,18 +45,24 @@ package is.ru.tictactoe;
 
 		switch(pID){
 			case 0: 
-				 if(LegalMove(x)){
+				if(LegalMove(x)){
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
 						}
 						if(CheckIfWon(pID)){
-							System.out.println("Til hamingju Thu hefur unnid leikinn");
+							System.out.println("Til hamingju! Thu hefur unnid leikinn");
 						}
 						if(CheckIfFull()){
-							System.out.println("Leikur endar i jafntefli ");
+							System.out.println("Leikur endar i jafntefli");
 						}
 					}
+					else{
+						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
+					}
+				}
+				else{
+					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
 				}
 			case 1:  
 				if(LegalMove(x)){
@@ -65,12 +71,18 @@ package is.ru.tictactoe;
 							BOARD[x][y] = TWO;
 						}
 						if(CheckIfWon(pID)){
-							System.out.println("Til hamingju  Thu hefur unnid leikinn");
+							System.out.println("Til hamingju! Thu hefur unnid leikinn");
 						}
 						if(CheckIfFull()){
-							System.out.println("Leikur endar i jafntefli ");
+							System.out.println("Leikur endar i jafntefli");
 						}
 					}
+					else{
+						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
+					}
+				}
+				else{
+					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
 				}
 		}
 	}
