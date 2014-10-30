@@ -27,4 +27,15 @@ import org.junit.Test;
 			assertEquals(1, newboard.GetStateOfField(1, 2));
 			assertEquals(1, newboard.GetStateOfField(1, 1));
 		}
+
+
+		@Test
+		public void testCheckIfFree ()
+		{
+			Board b = new Board();
+			b.SetMove(0,1,1);
+			assertEquals(false,b.CheckIfFree(1,1));
+			assertEquals(true,b.CheckIfFree(2,2));
+		}
 }
+
