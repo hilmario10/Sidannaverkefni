@@ -23,9 +23,9 @@ import org.junit.Test;
 			newboard.SetMove(1, 2, 0);
 			newboard.SetMove(0, 1, 2);
 			newboard.SetMove(0, 1, 1);
-			assertEquals(2, newboard.GetStateOfField(2, 0));
-			assertEquals(1, newboard.GetStateOfField(1, 2));
-			assertEquals(1, newboard.GetStateOfField(1, 1));
+			assertEquals("O", newboard.GetStateOfField(2, 0));
+			assertEquals("X", newboard.GetStateOfField(1, 2));
+			assertEquals("X", newboard.GetStateOfField(1, 1));
 		}
 
 		//Check if field on board is taken.
@@ -70,10 +70,10 @@ import org.junit.Test;
 			gState.SetMove(1, 1, 1);
 			gState.SetMove(0, 2, 2);
 			gState.SetMove(1, 2, 1);
-			assertEquals(1, gState.GetStateOfField(0 ,2));
-			assertEquals(2, gState.GetStateOfField(1 ,1));
-			assertEquals(1, gState.GetStateOfField(2 ,2));
-			assertEquals(2, gState.GetStateOfField(2 ,1));
+			assertEquals("X", gState.GetStateOfField(0 ,2));
+			assertEquals("O", gState.GetStateOfField(1 ,1));
+			assertEquals("X", gState.GetStateOfField(2 ,2));
+			assertEquals("O", gState.GetStateOfField(2 ,1));
 
 		}
 		//Check if player has three in a row in a row col or diagonal and therefor wins the game.
@@ -120,6 +120,22 @@ import org.junit.Test;
 				String message = e.getMessage();
     			assertEquals("Hnit ekki leyfilegt: [-3]", message);
 			}
+		}
+
+		//Check if board is full and game is tie
+		@Test
+		public void gameTie(){
+			Board bFull = new Board();
+			bFull.SetMove(0, 0, 0);
+			bFull.SetMove(1, 1, 1);
+			bFull.SetMove(0, 1, 2);
+			bFull.SetMove(0, 0, 2);
+			bFull.SetMove(1, 2, 0);
+			bFull.SetMove(0, 1, 0);
+			bFull.SetMove(0, 2, 1);
+			bFull.SetMove(1, 2, 2);
+			bFull.SetMove(0, 0, 1);
+			assertEquals(true, bFull.CheckIfFull());
 		}
 }
 

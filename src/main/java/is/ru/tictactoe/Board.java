@@ -50,9 +50,17 @@ package is.ru.tictactoe;
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
 							GameLogic.hasMoved = true;
-							CheckIfWon(pID);
-							CheckIfFull();
-							break;
+							
+							if(CheckIfWon(pID)){
+								GameLogic.keepPlaying = false;
+								System.out.println("Congrats " + GameLogic.one.getName() + " you have won the game");
+								break;
+							}
+							if(CheckIfFull()){
+								GameLogic.keepPlaying = false;
+								System.out.println("Tie");
+								break;
+							}
 
 						}
 						else{
@@ -61,22 +69,30 @@ package is.ru.tictactoe;
 						}
 					}
 					else{
-						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
+						throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
+					throw new IllegalArgumentException("X-cord not allowed");
 				}
-			//break;
+			break;
 			case 1: 
 				if(LegalMove(x)){
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
 							GameLogic.hasMoved = true;
-							CheckIfWon(pID);
-							CheckIfFull();
-							break;
+							
+							if(CheckIfWon(pID)){
+								GameLogic.keepPlaying = false;
+								System.out.println("Congrats "  + GameLogic.two.getName() + " you have won the game");
+								break;
+							}
+							if(CheckIfFull()){
+								GameLogic.keepPlaying = false;
+								System.out.println("Tie");
+								break;
+							}
 						}
 						else{
 							System.out.println(" P2 This field is occupied");
@@ -84,11 +100,11 @@ package is.ru.tictactoe;
 						}
 					}
 					else{
-						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
+						throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
+					throw new IllegalArgumentException("X-cord not allowed");
 				}
 			//break;
 		}
