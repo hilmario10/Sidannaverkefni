@@ -50,15 +50,23 @@ package is.ru.tictactoe;
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
 						}
-						CheckIfWon(pID);
-						CheckIfFull();
+						if(CheckIfWon(pID)){
+							GameLogic.keepPlaying = false;
+							System.out.println("Congrats you have won the game");
+							break;
+						}
+						if(CheckIfFull()){
+							GameLogic.keepPlaying = false;
+							System.out.println("Tie");
+							break;
+						}
 					}
 					else{
-						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
+						throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					throw new IllegalArgumentException("X-hnit ekki leyfilegt");
+					throw new IllegalArgumentException("X-cord not allowed");
 				}
 			case 1:  
 				if(LegalMove(x)){
@@ -66,8 +74,16 @@ package is.ru.tictactoe;
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
 						}
-						CheckIfWon(pID);
-						CheckIfFull();
+						if(CheckIfWon(pID)){
+							GameLogic.keepPlaying = false;
+							System.out.println("Congrats you have won the game");
+							break;
+						}
+						if(CheckIfFull()){
+							GameLogic.keepPlaying = false;
+							System.out.println("Tie");
+							break;
+						}
 					}
 					else{
 						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
