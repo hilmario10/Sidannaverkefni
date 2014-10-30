@@ -14,7 +14,7 @@ public class GameLogic {
 	{
 		one.setName(in.nextLine());
 		two.setName(in.nextLine());
-
+		
 		System.out.println(one.getName());
 		System.out.println(two.getName());
 		b.SetMove(one.getPlayerID(), 1, 2);
