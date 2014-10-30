@@ -86,5 +86,17 @@ import org.junit.Test;
 			bWon.SetMove(0, 2, 0);
 			assertEquals(true, bWon.CheckIfWon(0));
 		}
+
+		//Check if illegal move throws exception
+		@Test
+		public void illegalMoveThrowException(){
+			try{
+				Board.LegalMove(-3);
+			}
+			catch(IllegalArgumentException e){
+				String message = e.getMessage();
+    			assertEquals("Hnit ekki leyfilegt: [-3]", message);
+			}
+		}
 }
 
