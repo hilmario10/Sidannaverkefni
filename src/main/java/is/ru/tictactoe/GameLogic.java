@@ -19,6 +19,7 @@ public class GameLogic {
 
 	public static void NewGame(){
 		int whichPlayer = 0;
+		
 
 		System.out.println("Player 1 please enter your name");
 		one.setName(in.nextLine());
