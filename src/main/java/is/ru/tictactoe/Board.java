@@ -64,7 +64,7 @@ package is.ru.tictactoe;
 
 						}
 						else{
-							System.out.println("P1 This field is occupied");
+							System.out.println("This field is occupied");
 							break;
 						}
 					}
@@ -75,7 +75,7 @@ package is.ru.tictactoe;
 				else{
 					throw new IllegalArgumentException("X-cord not allowed");
 				}
-			break;
+				break;
 			case 1: 
 				if(LegalMove(x)){
 					if(LegalMove(y)){
@@ -95,7 +95,7 @@ package is.ru.tictactoe;
 							}
 						}
 						else{
-							System.out.println(" P2 This field is occupied");
+							System.out.println("This field is occupied");
 							break;
 						}
 					}
@@ -106,9 +106,9 @@ package is.ru.tictactoe;
 				else{
 					throw new IllegalArgumentException("X-cord not allowed");
 				}
-			//break;
+				break;
 		}
-}
+	}
 
 	public boolean CheckIfWon(int pID){
 		switch(pID){
