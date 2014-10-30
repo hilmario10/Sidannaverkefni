@@ -36,7 +36,7 @@ public class GameLogic {
 					b.PrintBoard();
 				}
 					whichPlayer = 1;
-					//hasMoved = false;
+					hasMoved = false;
 			}
 			else{
 				while(!hasMoved){
@@ -48,11 +48,10 @@ public class GameLogic {
 					b.PrintBoard();
 				}
 					whichPlayer = 0;
-					//hasMoved = false;
+					hasMoved = false;
 			}
-			hasMoved = false;
+			//hasMoved = false;
 		}
-		System.out.println("Congrats you have won the game");
 	}
 
 }
