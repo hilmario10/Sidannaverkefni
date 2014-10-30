@@ -77,7 +77,7 @@ import org.junit.Test;
 		@Test
 		public void testCheckIfWon(){
 			Board bWon = new Board();
-
+			//Check if player has  three in a row vertical
 			bWon.SetMove(0, 0, 0);
 			bWon.SetMove(1, 1, 1);
 			bWon.SetMove(0, 1, 0);
@@ -85,6 +85,26 @@ import org.junit.Test;
 			bWon.SetMove(1, 0, 2);
 			bWon.SetMove(0, 2, 0);
 			assertEquals(true, bWon.CheckIfWon(0));
+
+			Board bhorizontalWon = new Board();
+			//Check if player has  three in a row horizontal
+			bhorizontalWon.SetMove(0, 0, 0);
+			bhorizontalWon.SetMove(1, 1, 1);
+			bhorizontalWon.SetMove(0, 0, 1);
+			assertEquals(false, bhorizontalWon.CheckIfWon(0));
+			bhorizontalWon.SetMove(1, 2, 0);
+			bhorizontalWon.SetMove(0, 0, 2);
+			assertEquals(true, bhorizontalWon.CheckIfWon(0));
+
+			Board bdiagonalWon = new Board();
+			//Check if player has  three in a row diagonal
+			bdiagonalWon.SetMove(0, 0, 0);
+			bdiagonalWon.SetMove(1, 0, 1);
+			bdiagonalWon.SetMove(0, 1, 1);
+			assertEquals(false, bdiagonalWon.CheckIfWon(0));
+			bdiagonalWon.SetMove(1, 2, 0);
+			bdiagonalWon.SetMove(0, 2, 2);
+			assertEquals(true, bdiagonalWon.CheckIfWon(0));
 		}
 }
 
