@@ -127,14 +127,22 @@ package is.ru.tictactoe;
 	}
 	
 	// Returns if field on BOARD id free, if not the what player has there token on that field.
-	public int GetStateOfField(int x, int y){
-		return BOARD[x][y];
+	public String GetStateOfField(int x, int y){
+		if(BOARD[x][y] == FREE){
+			return "-";
+		}
+		else if(BOARD[x][y] == ONE){
+			return "X";
+		}
+		else{
+			return "O";
+		}
 	}
 
 	public void PrintBoard(){
 		for(int i = 0; i < ROW; i++){
 			for(int j = 0; j < COL; j++){
-				System.out.print("| " + BOARD[i][j] + " |");
+				System.out.print("| " + GetStateOfField(i, j) + " |");
 			}
 			System.out.println();
 		}
