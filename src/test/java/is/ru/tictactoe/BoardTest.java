@@ -58,6 +58,7 @@ import org.junit.Test;
 			assertEquals(true, bFull.CheckIfFull());
 		}
 
+		// Check to see if field on board is free, if not then what player is there.
 		@Test
 		public void testGetStateOfField(){
 			Board gState = new Board();
@@ -71,6 +72,19 @@ import org.junit.Test;
 			assertEquals(1, gState.GetStateOfField(2 ,2));
 			assertEquals(2, gState.GetStateOfField(2 ,1));
 
+		}
+
+		@Test
+		public void testCheckIfWon(){
+			Board bWon = new Board();
+
+			bWon.SetMove(0, 0, 0);
+			bWon.SetMove(1, 1, 1);
+			bWon.SetMove(0, 1, 0);
+			assertEquals(false, bWon.CheckIfWon(0));
+			bWon.SetMove(1, 0, 2);
+			bWon.SetMove(0, 2, 0);
+			assertEquals(true, bWon.CheckIfWon(0));
 		}
 }
 
