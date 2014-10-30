@@ -1,3 +1,5 @@
 language: java
-jdk: openjdk7
-script: ./gradlew check
+jdk: 
+	- openjdk7
+script: 
+	- ./gradlew check
