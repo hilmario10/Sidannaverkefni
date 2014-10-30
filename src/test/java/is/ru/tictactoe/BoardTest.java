@@ -36,6 +36,9 @@ import org.junit.Test;
 			b.SetMove(0,1,1);
 			assertEquals(false,b.CheckIfFree(1,1));
 			assertEquals(true,b.CheckIfFree(2,2));
+			assertEquals(true,b.CheckIfFree(0,0));
+			assertEquals(true,b.CheckIfFree(2,1));
+			assertEquals(true,b.CheckIfFree(1,0));
 		}
 
 		//Check if Board is full.
