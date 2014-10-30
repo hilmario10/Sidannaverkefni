@@ -50,12 +50,8 @@ package is.ru.tictactoe;
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
 						}
-						if(CheckIfWon(pID)){
-							System.out.println("Til hamingju! Thu hefur unnid leikinn");
-						}
-						if(CheckIfFull()){
-							System.out.println("Leikur endar i jafntefli");
-						}
+						CheckIfWon(pID);
+						CheckIfFull();
 					}
 					else{
 						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
@@ -70,12 +66,8 @@ package is.ru.tictactoe;
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
 						}
-						if(CheckIfWon(pID)){
-							System.out.println("Til hamingju! Thu hefur unnid leikinn");
-						}
-						if(CheckIfFull()){
-							System.out.println("Leikur endar i jafntefli");
-						}
+						CheckIfWon(pID);
+						CheckIfFull();
 					}
 					else{
 						throw new IllegalArgumentException("Y-hnit ekki leyfilegt");
@@ -92,15 +84,18 @@ package is.ru.tictactoe;
 			case 0:  
 				if(BOARD[0][0] == ONE && BOARD[1][1] == ONE && BOARD[2][2] == ONE
 				|| BOARD[2][0] == ONE && BOARD[1][1] == ONE && BOARD[0][2] == ONE){
+					GameLogic.keepPlaying = false;
 					return true;
 				}
 				else{
 					for(int i = 0; i < ROW; i++){
 						for(int j = 0; j < COL; j++){
 							if(BOARD[i][0] == ONE && BOARD[i][1] == ONE && BOARD[i][2] == ONE){
+								GameLogic.keepPlaying = false;
 								return true;
 							}
 							else if(BOARD[0][j] == ONE && BOARD[1][j] == ONE && BOARD[2][j] == ONE){
+								GameLogic.keepPlaying = false;
 								return true;
 							}
 						}
@@ -111,15 +106,18 @@ package is.ru.tictactoe;
 			case 1:  
 				if(BOARD[0][0] == TWO && BOARD[1][1] == TWO && BOARD[2][2] == TWO
 				|| BOARD[2][0] == TWO && BOARD[1][1] == TWO && BOARD[0][2] == TWO){
+					GameLogic.keepPlaying = false;
 					return true;
 				}
 				else{
 					for(int i = 0; i < ROW; i++){
 						for(int j = 0; j < COL; j++){
 							if(BOARD[i][0] == TWO && BOARD[i][1] == TWO && BOARD[i][2] == TWO){
+								GameLogic.keepPlaying = false;
 								return true;
 							}
 							else if(BOARD[0][j] == TWO && BOARD[1][j] == TWO && BOARD[2][j] == TWO){
+								GameLogic.keepPlaying = false;
 								return true;
 							}
 						}
@@ -157,6 +155,7 @@ package is.ru.tictactoe;
 				System.out.print("| " + GetStateOfField(i, j) + " |");
 			}
 			System.out.println();
+			System.out.println("---------------");
 		}
 	}
 	
