@@ -73,7 +73,7 @@ import org.junit.Test;
 			assertEquals(2, gState.GetStateOfField(2 ,1));
 
 		}
-
+		//Check if player has three in a row in a row col or diagonal and therefor wins the game.
 		@Test
 		public void testCheckIfWon(){
 			Board bWon = new Board();
