@@ -121,5 +121,21 @@ import org.junit.Test;
     			assertEquals("Hnit ekki leyfilegt: [-3]", message);
 			}
 		}
+
+		//Check if board is full and game is tie
+		@Test
+		public void gameTie(){
+			Board bFull = new Board();
+			bFull.SetMove(0, 0, 0);
+			bFull.SetMove(1, 1, 1);
+			bFull.SetMove(0, 1, 2);
+			bFull.SetMove(0, 0, 2);
+			bFull.SetMove(1, 2, 0);
+			bFull.SetMove(0, 1, 0);
+			bFull.SetMove(0, 2, 1);
+			bFull.SetMove(1, 2, 2);
+			bFull.SetMove(0, 0, 1);
+			assertEquals(true, bFull.CheckIfFull());
+		}
 }
 
