@@ -120,7 +120,10 @@ package is.ru.tictactoe;
 	}
 	// Check if Field on the BOARD is free to make a move.
 	public boolean CheckIfFree(int x, int y){
-		return BOARD[x][y] == FREE;
+		if(BOARD[x][y] == FREE){
+			return true;
+		}
+		return false;
 	}
 	
 	// Returns if field on BOARD id free, if not the what player has there token on that field.
