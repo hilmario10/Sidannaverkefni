@@ -70,10 +70,10 @@ import org.junit.Test;
 			gState.SetMove(1, 1, 1);
 			gState.SetMove(0, 2, 2);
 			gState.SetMove(1, 2, 1);
-			assertEquals(1, gState.GetStateOfField(0 ,2));
-			assertEquals(2, gState.GetStateOfField(1 ,1));
-			assertEquals(1, gState.GetStateOfField(2 ,2));
-			assertEquals(2, gState.GetStateOfField(2 ,1));
+			assertEquals("X", gState.GetStateOfField(0 ,2));
+			assertEquals("O", gState.GetStateOfField(1 ,1));
+			assertEquals("X", gState.GetStateOfField(2 ,2));
+			assertEquals("O", gState.GetStateOfField(2 ,1));
 
 		}
 		//Check if player has three in a row in a row col or diagonal and therefor wins the game.
