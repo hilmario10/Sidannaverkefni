@@ -23,9 +23,9 @@ import org.junit.Test;
 			newboard.SetMove(1, 2, 0);
 			newboard.SetMove(0, 1, 2);
 			newboard.SetMove(0, 1, 1);
-			assertEquals(2, newboard.GetStateOfField(2, 0));
-			assertEquals(1, newboard.GetStateOfField(1, 2));
-			assertEquals(1, newboard.GetStateOfField(1, 1));
+			assertEquals("O", newboard.GetStateOfField(2, 0));
+			assertEquals("X", newboard.GetStateOfField(1, 2));
+			assertEquals("X", newboard.GetStateOfField(1, 1));
 		}
 
 		//Check if field on board is taken.
