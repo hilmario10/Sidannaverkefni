@@ -28,7 +28,7 @@ import org.junit.Test;
 			assertEquals(1, newboard.GetStateOfField(1, 1));
 		}
 
-
+		//Check if field on board is taken.
 		@Test
 		public void testCheckIfFree ()
 		{
@@ -36,6 +36,26 @@ import org.junit.Test;
 			b.SetMove(0,1,1);
 			assertEquals(false,b.CheckIfFree(1,1));
 			assertEquals(true,b.CheckIfFree(2,2));
+		}
+
+		@Test
+		public void testCheckIfFull(){
+			Board bFull = new Board();
+
+			bFull.SetMove(0, 0, 0);
+			bFull.SetMove(1, 0, 1);
+			bFull.SetMove(0, 0, 2);
+			assertEquals(false, bFull.CheckIfFull());
+			bFull.SetMove(1, 1, 0);
+			bFull.SetMove(0, 1, 1);
+			assertEquals(false, bFull.CheckIfFull());
+			bFull.SetMove(1, 1, 2);
+			bFull.SetMove(0, 2, 0);
+			assertEquals(false, bFull.CheckIfFull());
+			bFull.SetMove(1, 2, 1);
+			bFull.SetMove(0, 2, 2);
+			assertEquals(true, bFull.CheckIfFull());
+
 		}
 }
 
