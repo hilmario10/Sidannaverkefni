@@ -1,6 +1,10 @@
 package is.ru.tictactoe;
 
-	public class Board {
+import static spark.Spark.*;
+import spark.*;
+import spark.servlet.SparkApplication;
+
+public class Board {
 	
 	int ROW = 3;
 	int COL = 3;
@@ -53,7 +57,7 @@ package is.ru.tictactoe;
 							
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
-								System.out.println("Congrats " + GameLogic.one.getName() + " you have won the game");
+								System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
 								break;
 							}
 							if(CheckIfFull()){
@@ -85,7 +89,7 @@ package is.ru.tictactoe;
 							
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
-								System.out.println("Congrats "  + GameLogic.two.getName() + " you have won the game");
+								System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
 								break;
 							}
 							if(CheckIfFull()){
