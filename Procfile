@@ -1,1 +1,1 @@
-web: build/install/Sidannaverkefni/bin/Sidannaverkefnilibs
+web: build/install/Sidannaverkefni/bin/Sidannaverkefni/
