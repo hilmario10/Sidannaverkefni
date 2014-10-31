@@ -1,1 +1,1 @@
-web: java -jar build/libs/Sidannaverkefni.jar
+web: build/install/Sidannaverkefni/bin/Sidannaverkefnilibs
