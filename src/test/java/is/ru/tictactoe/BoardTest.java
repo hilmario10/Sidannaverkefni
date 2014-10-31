@@ -134,5 +134,6 @@ public class BoardTest {
 		b.SetMove(0, 0, 1);
 		assertEquals(true, b.CheckIfFull());
 	}
+	
 }
 
