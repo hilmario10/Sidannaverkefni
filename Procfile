@@ -1,1 +1,1 @@
-web: build/install/Sidannaverkefni/bin/Sidannaverkefni/
+web: build/install/Sidannaverkefni/bin/Sidannaverkefni
