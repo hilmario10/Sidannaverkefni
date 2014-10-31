@@ -18,22 +18,11 @@ sourceSets {
     seleniumXvfb
 }
 
-configurations {
-     all*.exclude group: 'org.grails', module: 'grails-plugin-log4j'        
-     all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'           
-}
-
-dependencies {   
-    compile ('org.grails.plugins:logback:0.3.1') {
-        exclude(module:'slf4j-api')
-    }
-    compile ('ch.qos.logback:logback-classic:1.1.1') {
-        exclude(module:'slf4j-api')
-    }
-    //bootstrap 'ch.qos.logback:logback-classic:1.1.1'
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'com.sparkjava:spark-core:1.1.1'
 
     testCompile 'junit:junit:4.11'
-    compile 'com.sparkjava:spark-core:1.1.1'
 
     seleniumCompile 'junit:junit:4.11'
     seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.39.0'
