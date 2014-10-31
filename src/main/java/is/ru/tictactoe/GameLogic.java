@@ -19,10 +19,10 @@ public class GameLogic {
 
 	public static void main(String [] args)
 	{
-		 staticFileLocation("/public");
+		/* staticFileLocation("/public");
         
 
-       	/*if (System.getenv("PORT") == null) {
+       	if (System.getenv("PORT") == null) {
 
             setPort(PORT);
         }
@@ -34,7 +34,7 @@ public class GameLogic {
         //
         post(new Route("/add"){
         	@Override
-        	public Object handleObject(Request request, Response response){
+        	public Object handle(Request request, Response response){
         		
 				one.setName("Leik1");
 				two.setName("leik2");
@@ -47,7 +47,7 @@ public class GameLogic {
         //Play function with response.
         post(new Route("/play"){
         	@Override
-        	public Object handleObject(Request request, Response response){
+        	public Object handle(Request request, Response response){
 
         	}
         });*/
