@@ -1,6 +1,9 @@
 package is.ru.tictactoe;
 
-	public class Board {
+import static spark.Spark.*;
+import spark.*;
+
+public class Board {
 	
 	int ROW = 3;
 	int COL = 3;
