@@ -19,7 +19,7 @@ public class GameLogic {
 
 	public static void main(String [] args)
 	{
-		/* staticFileLocation("/public");
+		staticFileLocation("/public");
         
 
        	if (System.getenv("PORT") == null) {
@@ -48,9 +48,9 @@ public class GameLogic {
         post(new Route("/play"){
         	@Override
         	public Object handle(Request request, Response response){
-
+        		return "true";
         	}
-        });*/
+        });
 
 
 		//NewGame();
