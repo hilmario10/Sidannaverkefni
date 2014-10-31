@@ -1,5 +1,8 @@
 package is.ru.tictactoe;
 
+import static spark.Spark.*;
+import spark.*;
+
 public class Player {
 	
 	//Variables for player.
