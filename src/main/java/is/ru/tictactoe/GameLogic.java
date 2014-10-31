@@ -5,93 +5,40 @@ import static spark.Spark.*;
 import spark.*;
 import spark.servlet.SparkApplication;
 
-public class GameLogic {
+public class GameLogic implements SparkApplication {
 
-	public static Board b = new Board();
-	public static Scanner in = new Scanner(System.in);
-				
-	public static Player one = new Player("", 0);
-	public static Player two = new Player("", 1);
-	public static boolean keepPlaying = true;
-	public static boolean hasMoved = false;
-        	
-	public static final int PORT = 4567;
+	public static Player pOne = new Player("", 0);
+	public static Player pTwo = new Player("", 1);
 
-	public static void main(String [] args)
-	{
+	public static void main(String [] args) {
+
 		staticFileLocation("/public");
-        
+        SparkApplication webUI = new GameLogic();
+		String port = System.getenv("PORT");
 
-       	if (System.getenv("PORT") == null) {
-
-            setPort(PORT);
-        }
-        else {
-
-            setPort(Integer.valueOf(System.getenv("PORT")));
+       	if (port != null) {
+       		setPort(Integer.valueOf(port));
         }
 
-        //
-        post(new Route("/add"){
+        post(new Route("/name"){
         	@Override
         	public Object handle(Request request, Response response){
         		
-				one.setName("Leik1");
-				two.setName("leik2");
+        		Board b = new Board();
+        		String p1 = String.valueOf(request.queryParams("p1"));
+        		String p2 = String.valueOf(request.queryParams("p2"));
+
+        		if (p1 == "") {
+        			pOne.setName("Player_1");
+        		}
+
+        		if (p2 == "") {
+        			pTwo.setName("Player_2");
+        		}
 
 				return true;
         	}
         });
 
-
-        //Play function with response.
-        post(new Route("/play"){
-        	@Override
-        	public Object handle(Request request, Response response){
-        		return "true";
-        	}
-        });
-
-
-		//NewGame();
 	}
-
-	/*public static void NewGame(){
-		int whichPlayer = 0;
-
-
-		System.out.println("Player 1 please enter your name");
-		one.setName(in.nextLine());
-		System.out.println("Player 2 please enter your name");
-		two.setName(in.nextLine());
-
-		while(keepPlaying){
-			if(whichPlayer == 0){
-				while(!hasMoved){
-					System.out.println(one.getName() + " Please enter your X cord move");
-					int x = in.nextInt();
-					System.out.println(one.getName() + " Please enter your Y cord move");
-					int y = in.nextInt();
-					b.SetMove(one.getPlayerID(), x, y);
-					b.PrintBoard();
-				}
-					whichPlayer = 1;
-					hasMoved = false;
-			}
-			else{
-				while(!hasMoved){
-					System.out.println(two.getName() + " Please enter your X cord move");
-					int x = in.nextInt();
-					System.out.println(two.getName() + " Please enter your Y cord move");
-					int y = in.nextInt();
-					b.SetMove(two.getPlayerID(), x, y);
-					b.PrintBoard();
-				}
-					whichPlayer = 0;
-					hasMoved = false;
-			}
-			//hasMoved = false;
-		}
-	}*/
-
 }
