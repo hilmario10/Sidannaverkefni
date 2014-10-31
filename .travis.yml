@@ -11,4 +11,4 @@ deploy:
   app:
     master: hilmario10
   on:
-    repo: hilmario10/Sidannaverkefn
+    repo: hilmario10/Sidannaverkefni
