@@ -21,7 +21,7 @@ public class GameLogic {
 		 staticFileLocation("/public");
         
 
-       	if (System.getenv("PORT") == null) {
+       	/*if (System.getenv("PORT") == null) {
 
             setPort(PORT);
         }
@@ -31,7 +31,7 @@ public class GameLogic {
         }
 
         //
-        /*post(new Route("/add"){
+        post(new Route("/add"){
         	@Override
         	public Object handleObject(Request request, Response response){
         		
