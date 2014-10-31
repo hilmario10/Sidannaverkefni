@@ -30,7 +30,7 @@ dependencies {
     compile ('ch.qos.logback:logback-classic:1.1.1') {
         exclude(module:'slf4j-api')
     }
-    bootstrap 'ch.qos.logback:logback-classic:1.1.1'
+    //bootstrap 'ch.qos.logback:logback-classic:1.1.1'
 
     testCompile 'junit:junit:4.11'
     compile 'com.sparkjava:spark-core:1.1.1'
