@@ -1,5 +1,14 @@
 language: java
 jdk: 
   - openjdk7
-script: 
+before_deploy:
   - ./gradlew check
+  - ./gradlew seleniumXvfb
+deploy:
+  provider: heroku
+  api_key:
+    secure:
+  app:
+    master: hilmario10
+  on:
+    repo: hilmario10/Sidannaverkefn
