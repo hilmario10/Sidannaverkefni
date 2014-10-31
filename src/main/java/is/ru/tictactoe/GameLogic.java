@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import static spark.Spark.*;
 import spark.*;
+import spark.servlet.SparkApplication;
 
 public class GameLogic {
 

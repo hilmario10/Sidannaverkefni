@@ -2,6 +2,7 @@ package is.ru.tictactoe;
 
 import static spark.Spark.*;
 import spark.*;
+import spark.servlet.SparkApplication;
 
 public class Board {
 	
