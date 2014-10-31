@@ -20,7 +20,7 @@ public class GameLogic {
        		setPort(Integer.valueOf(port));
         }
 
-        post(new Route("/name"){
+        post(new Route("/name") {
         	@Override
         	public Object handle(Request request, Response response){
         		
