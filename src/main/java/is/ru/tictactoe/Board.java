@@ -57,7 +57,7 @@ public class Board {
 							
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
-								System.out.println("Congrats " + GameLogic.one.getName() + " you have won the game");
+								System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
 								break;
 							}
 							if(CheckIfFull()){
@@ -89,7 +89,7 @@ public class Board {
 							
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
-								System.out.println("Congrats "  + GameLogic.two.getName() + " you have won the game");
+								System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
 								break;
 							}
 							if(CheckIfFull()){

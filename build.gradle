@@ -20,9 +20,9 @@ sourceSets {
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.5'
-    testCompile 'junit:junit:4.11'
-
     compile 'com.sparkjava:spark-core:1.1.1'
+
+    testCompile 'junit:junit:4.11'
 
     seleniumCompile 'junit:junit:4.11'
     seleniumCompile 'org.seleniumhq.selenium:selenium-java:2.39.0'
