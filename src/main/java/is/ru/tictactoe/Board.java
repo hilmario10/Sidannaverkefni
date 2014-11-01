@@ -6,17 +6,17 @@ import spark.servlet.SparkApplication;
 
 public class Board {
 	
-	int ROW = 3;
-	int COL = 3;
+	public static final int ROW = 3;
+	public static final int COL = 3;
 
 	public static final int FREE = 0;
 	public static final int ONE = 1;
 	public static final int TWO = 2;
 
-	int [][] BOARD = new int [ROW][COL];
+	public static final int [][] BOARD = new int [ROW][COL];
 
 	public static boolean keepPlaying = true;
-	public static boolean hasMoved = false;
+	//public static boolean hasMoved = false;
 
 	//Constructor for Board/
 	public Board(){
@@ -56,7 +56,7 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
-							hasMoved = true;
+							//hasMoved = true;
 							
 							if(CheckIfWon(pID)){
 								keepPlaying = false;
@@ -89,7 +89,7 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
-							hasMoved = true;
+							//hasMoved = true;
 							
 							if(CheckIfWon(pID)){
 								keepPlaying = false;
