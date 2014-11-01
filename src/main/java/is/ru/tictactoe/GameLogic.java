@@ -48,7 +48,7 @@ public class GameLogic{
         	public Object handle(Request request, Response response){
         		String playerID = String.valueOf(request.queryParams("player"));
         		int pID = Integer.parseInt(playerID);
-        		String whatField = String.valueOf(request.queryParams("cellClicked"));
+        		String whatField = String.valueOf(request.queryParams("colid"));
         		int getCords = Integer.parseInt(whatField);
         		int x = 0;
         		int y = 0;
