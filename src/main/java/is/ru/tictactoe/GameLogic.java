@@ -43,12 +43,12 @@ public class GameLogic{
         	}
         });
 
-        post(new Route("/move"){
+        /*post(new Route("/move"){
         	@Override
         	public Object handle(Request request, Response response){
         		String playerID = String.valueOf(request.queryParams("player"));
         		int pID = Integer.parseInt(playerID);
-        		String whatField = String.valueOf(request.queryParams("cellClicked"));
+        		String whatField = String.valueOf(request.queryParams("colid"));
         		int getCords = Integer.parseInt(whatField);
         		int x = 0;
         		int y = 0;
@@ -100,7 +100,7 @@ public class GameLogic{
 		        		}
 	        		return result;
         		}
-        });
+        });*/
 
 
 	}
