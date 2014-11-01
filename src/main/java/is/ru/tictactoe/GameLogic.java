@@ -10,7 +10,7 @@ public class GameLogic {
 	public static Player pTwo = new Player("", 1);
 	public static boolean keepPlaying = true;
 	public static boolean hasMoved = false;
-    public static Board b = new Board();
+    public static Board b1 = new Board();
 
 	public static void main(String [] args) {
 
@@ -24,7 +24,7 @@ public class GameLogic {
         post(new Route("/name") {
         	@Override
         	public Object handle(Request request, Response response) {
-                Board b = new Board();
+                Board b2 = new Board();
         		String p1 = String.valueOf(request.queryParams("p1"));
         		String p2 = String.valueOf(request.queryParams("p2"));
 
@@ -92,10 +92,10 @@ public class GameLogic {
         		}			
 
         		if(playerID == 0){
-        			result = b.SetMove(0, x, y);
+        			result = b1.SetMove(0, x, y);
         		}
         		else if(playerID == 1){
-        			result = b.SetMove(1, x, y);
+        			result = b1.SetMove(1, x, y);
         		}
 
         		return result;
