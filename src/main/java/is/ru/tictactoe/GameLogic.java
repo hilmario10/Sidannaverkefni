@@ -13,7 +13,7 @@ public class GameLogic{
 
 	public static void main(String [] args) {
 
-		staticFileLocation("/resources");
+		staticFileLocation("/public");
 		String port = System.getenv("PORT");
 
        	if (port != null) {
