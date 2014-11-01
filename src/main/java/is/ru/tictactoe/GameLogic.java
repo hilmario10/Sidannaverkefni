@@ -6,11 +6,11 @@ import spark.servlet.SparkApplication;
 
 public class GameLogic{
 
-    public static Board b = new Board();
 	public static Player pOne = new Player("", 0);
 	public static Player pTwo = new Player("", 1);
 	public static boolean keepPlaying = true;
 	public static boolean hasMoved = false;
+    public static Board b = new Board();
 
 	public static void main(String [] args) {
 
@@ -46,58 +46,61 @@ public class GameLogic{
         post(new Route("/move"){
         	@Override
         	public Object handle(Request request, Response response){
-        		String playerID = String.valuef(request.queryParams("player"));
-        		int pID = Integer.parsInt(playerID);
+        		String playerID = String.valueOf(request.queryParams("player"));
+        		int pID = Integer.parseInt(playerID);
         		String whatField = String.valueOf(request.queryParams("cellClicked"));
-        		int getCords = Integer.parsInt(whatField);
+        		int getCords = Integer.parseInt(whatField);
         		int x = 0;
         		int y = 0;
-        		switch(getCords){
-        			case 0:	
-        					x = 0;
-        					y = 0;
-        					break;
-        			case 1: 
-        					x = 0;
-        					y = 1;
-        					break;
-        			case 2:
-        					x = 0;
-        					y = 2;
-        					break;
-        			case 3:
-        					x = 1;
-        					y = 0;
-        					break;
-        			case 4:
-        					x = 1;
-        					y = 1;
-        					break;
-        			case 5:
-        					x = 1;
-        					y = 2;
-        					break;
-        			case 6:
-        					x = 2;
-        					y = 0;
-        					break;
-        			case 7:
-        					x = 2;
-        					y = 1;
-        					break;
-        			case 8:
-        					x = 2;
-        					y = 2;
-        					break;				
+        		String result = "";
+	        		switch(getCords){
+	        			case 0:	
+	        					x = 0;
+	        					y = 0;
+	        					break;
+	        			case 1: 
+	        					x = 0;
+	        					y = 1;
+	        					break;
+	        			case 2:
+	        					x = 0;
+	        					y = 2;
+	        					break;
+	        			case 3:
+	        					x = 1;
+	        					y = 0;
+	        					break;
+	        			case 4:
+	        					x = 1;
+	        					y = 1;
+	        					break;
+	        			case 5:
+	        					x = 1;
+	        					y = 2;
+	        					break;
+	        			case 6:
+	        					x = 2;
+	        					y = 0;
+	        					break;
+	        			case 7:
+	        					x = 2;
+	        					y = 1;
+	        					break;
+	        			case 8:
+	        					x = 2;
+	        					y = 2;
+	        					break;	
+	        			}			
 
+		        		if(pID == 0){
+		        			result = b.SetMove(0, x, y);
+		        		}
+		        		else if(pID == 1){
+		        			result = b.SetMove(1, x, y);
+		        		}
+	        		return result;
         		}
-        		if(pID == 0){
-        			b.setMove(0, x, y);
-        		}
-        		else if(pID == 1){
-        			b.setMove(1, x, y);
-        		}
-        })
+        });
 
 
 	}
