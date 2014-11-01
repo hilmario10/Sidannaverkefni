@@ -107,7 +107,7 @@
                     <p>
                         <span id="winner_name" style="color:green"></span>
                     </p>
-                    <button id="btnNewGame" type="button" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                    <button id="btnNewGame" type="submit" class="btn btn-default" onClick="window.location.reload()">New game</button>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
                     <p>
                         <span id="tie"></span>
                     </p>
-                    <button id="btnNewGame" type="button" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                    <button id="btnNewGame" type="submit" class="btn btn-default" onClick="window.location.reload()">New game</button>
                 </div>
             </div>
         </div>
@@ -213,7 +213,7 @@
                 });
             });
 
-            $("#btnNewGame").click(function()) {
+            $("#btnNewGame").submit(function(ev)) {
                 $.ajax({
                     type: "post",
                     url: "/newgame",
@@ -222,6 +222,7 @@
                         alert("Ok");
                     }
                 });
+                ev.preventDefault();
             });
         });
     </script>
