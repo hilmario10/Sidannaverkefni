@@ -6,7 +6,7 @@
     <title>T-303-HUGB</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <style type="text/css">
-         .center {
+        .center {
             margin-left: auto;
             margin-right: auto;
             text-align: center;
@@ -24,8 +24,12 @@
         }
 
         .space {
-            padding-top: 15px;
-            padding-bottom: 15px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        td {
+
         }
     </style>
 </head>
@@ -47,7 +51,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="p2" id="p2" placeholder="Player 2">
                         </div>
-                        <button id="btnNewGame" type="submit" class="btn btn-default">New game</button>
+                        <button type="submit" class="btn btn-default">New game</button>
                     </form>
                 </div>
             </div>
@@ -60,7 +64,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p>
-                        <span id="p1_name" style="color:blue"></span>
+                        <span id="p1_name" style="color:blue"></span><br>
                         <span id="p2_name" style="color:red"></span>
                     </p>
                 </div>
@@ -95,6 +99,34 @@
         </div>
     </section>
 
+    <!-- Win -->
+    <section id="winSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <span id="winner_name" style="color:green"></span>
+                    </p>
+                    <button id="btnNewGame" type="submit" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tie -->
+    <section id="tieSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <span id="tie"></span>
+                    </p>
+                    <button id="btnNewGame" type="submit" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container center">
@@ -108,13 +140,19 @@
     <script>
         $(document).ready(function() {
             var frm = $('#secForm');
+            var p1;
+            var p2;
             var playerID = 0;
+            //var colID;
+            //var data;
 
             $('#tableSec').hide();
             $('#nameSec').hide();
+            $('#winSec').hide();
+            $('#tieSec').hide();     
             frm.submit(function(ev) {
-                var p1 = $("#p1").val();
-                var p2 = $("#p2").val();
+                p1 = $("#p1").val();
+                p2 = $("#p2").val();
                 $.ajax({
                     type: frm.attr("method"),
                     url: frm.attr("action"),
@@ -154,18 +192,38 @@
                     }
                     else if (data[0] === 'p1' && data[1] === 'hasWon') {
                         $(colID).html("X");
+                        $('#winner_name').html("Winner is " + p1);
+                        $('#winSec').show();
                     }
                     else if (data[0] === 'p2' && data[1] === 'hasWon') {
                         $(colID).html("O");
+                        $('#winner_name').html("The winner is " + p2);
+                        $('#winSec').show();
                     }
                     else if (data[0] === 'p1' && data[1] === 'gameTied') {
                         $(colID).html("X");
+                        $('#tie').html("No winner");
+                        $('#tieSec').show();
                     }
                     else if (data[0] === 'p2' && data[1] === 'gameTied') {
                         $(colID).html("O");
+                        $('#tie').html("No winner");
+                        $('#tieSec').show();
                     }
                 });
             });
+/*
+            $('#btnNewGame').click(function(ev) {
+                $.ajax({
+                    type: "post",
+                    url: "/newgame",
+                    data: null,
+                    success: function(result) {
+                        alert("Ok");
+                    }
+                });
+                ev.preventDefault();
+            });*/
         });
     </script>
 </body>
