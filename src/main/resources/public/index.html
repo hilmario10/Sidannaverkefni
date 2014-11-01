@@ -107,9 +107,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            var frm = $('#secForm');
+            var playerID = 0;
+
             $('#tableSec').hide();
             $('#nameSec').hide();
-            var frm = $('#secForm');
             frm.submit(function(ev) {
                 var p1 = $("#p1").val();
                 var p2 = $("#p2").val();
@@ -129,7 +131,6 @@
             });
 
             $('td').click(function() {
-                var playerID = 0;
                 var colID = this;
                 $.ajax({
                     type: "post",
