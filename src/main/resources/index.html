@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html> 
+<head>
+    <meta charset="utf-8" />
+    <title>T-303-HUGB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <style type="text/css">
+         .center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .center table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .center td {
+            width: 90pt;
+            height: 90pt;
+            border: 2px solid black;
+        }
+
+        .space {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro -->
+    <header class="center">
+        <h1>Tic Tac Toe</h1>
+    </header>
+
+    <!-- Player -->
+    <section id="nameSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form method="post" action="/name" class="form-inline space" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="p1" id="p1" placeholder="Player 1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="p2" id="p2" placeholder="Player 2">
+                        </div>
+                        <button id="btnNewGame" type="submit" class="btn btn-default">New game</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table -->
+    <section id="tableSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table>
+                        <tr id="0">
+                            <td id="0"></td>
+                            <td id="1"></td>
+                            <td id="2"></td>
+                        </tr>
+                        <tr id="1">
+                            <td id="0"></td>
+                            <td id="1"></td>
+                            <td id="2"></td>
+                        </tr>
+                            <tr id="2">
+                            <td id="0"></td>
+                            <td id="1"></td>
+                            <td id="2"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cord -->
+    <section id="cordSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form method="post" action="/cord" class="form-inline space" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="x" id="x" placeholder="X-cord">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="y" id="y" placeholder="Y-cord">
+                        </div>
+                        <button id="btnSubmit" type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container center">
+            <hr />
+            <p>&copy; Costner ehf.</p>
+        <div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        $(document).ready(function() {
+            var btnNewGame = $("#btnNewGame");
+            var btnSubmit = $("#btnSubmit");
+            $('#cordSec').hide();
+            btnNewGame.click(function() {
+                $('#nameSec').hide();
+                $('#cordSec').Show();
+           });
+        });
+    </script>
+</body>
+</html>
