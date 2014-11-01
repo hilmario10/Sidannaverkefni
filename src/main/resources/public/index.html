@@ -36,11 +36,11 @@
     </header>
 
     <!-- Player -->
-    <section id="nameSec">
+    <section id="playerSec">
         <div class="container center">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="/name" class="form-inline space" role="form">
+                    <form is="secForm" method="post" action="/name" class="form-inline space" role="form">
                         <div class="form-group">
                             <input type="text" class="form-control" name="p1" id="p1" placeholder="Player 1">
                         </div>
@@ -49,6 +49,19 @@
                         </div>
                         <button id="btnNewGame" type="submit" class="btn btn-default">New game</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Name -->
+    <section id="nameSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <span id="p1_name" style="color:blue"></span><span id="p2_name" style="color:red"></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -81,25 +94,6 @@
         </div>
     </section>
 
-    <!-- Cord -->
-    <section id="cordSec">
-        <div class="container center">
-            <div class="row">
-                <div class="col-xs-12">
-                    <form method="post" action="/cord" class="form-inline space" role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="x" id="x" placeholder="X-cord">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="y" id="y" placeholder="Y-cord">
-                        </div>
-                        <button id="btnSubmit" type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container center">
@@ -112,12 +106,25 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            var btnNewGame = $("#btnNewGame");
-            var btnSubmit = $("#btnSubmit");
-            $('#cordSec').hide();
-            btnNewGame.click(function() {
-                $('#nameSec').hide();
-                $('#cordSec').Show();
+            $('#tableSec').hide();
+            $('#nameSec').hide();
+            var frm = $('#secForm')
+            frm.submit(function(ev) {
+                var p1 = $("#p1").val();
+                var p2 = $("#p2").val();
+                $.ajax({
+                    type: frm.attr("method"),
+                    url: frm.attr("action"),
+                    data: frm.serialize(),
+                    success: function(result) {
+                        $('#p1_name').html("Player 1: " + p1);
+                        $('#p2_name').html("Player 2: " + p2);
+                        $('#playerSec').hide();
+                        $('#nameSec').Show();
+                        $('#tableSec').Show();                        
+                    }
+                });
+                ev.preventDefault();
            });
         });
     </script>
