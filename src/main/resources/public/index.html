@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="p2" id="p2" placeholder="Player 2">
                         </div>
-                        <button id="btnNewGame" type="submit" class="btn btn-default">New game</button>
+                        <button type="submit" class="btn btn-default">New game</button>
                     </form>
                 </div>
             </div>
@@ -95,6 +95,34 @@
         </div>
     </section>
 
+    <!-- Win -->
+    <section id="winSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <span id="winner_name"></span>
+                    </p>
+                    <button id="btnNewGame" type="button" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tie -->
+    <section id="tieSec">
+        <div class="container center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <span id="tie"></span>
+                    </p>
+                    <button id="btnNewGame" type="button" class="btn btn-default" onClick="window.location.reload()">New game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container center">
@@ -112,6 +140,8 @@
 
             $('#tableSec').hide();
             $('#nameSec').hide();
+            $('#winSec').hide();
+            $('#tieSec').hide();     
             frm.submit(function(ev) {
                 var p1 = $("#p1").val();
                 var p2 = $("#p2").val();
@@ -154,15 +184,23 @@
                     }
                     else if (data[0] === 'p1' && data[1] === 'hasWon') {
                         $(colID).html("X");
+                        $('#winner_name').html("Winner is " + p1);
+                        $('#winSec').show();
                     }
                     else if (data[0] === 'p2' && data[1] === 'hasWon') {
                         $(colID).html("O");
+                        $('#winner_name').html("The winner is " + p2);
+                        $('#winSec').show();
                     }
                     else if (data[0] === 'p1' && data[1] === 'gameTied') {
                         $(colID).html("X");
+                        $('#tie').html("No winner");
+                        $('#tieSec').show();
                     }
                     else if (data[0] === 'p2' && data[1] === 'gameTied') {
                         $(colID).html("O");
+                        $('#tie').html("No winner");
+                        $('#tieSec').show();
                     }
                 });
             });
