@@ -15,6 +15,9 @@ public class Board {
 
 	int [][] BOARD = new int [ROW][COL];
 
+	public static boolean keepPlaying = true;
+	public static boolean hasMoved = false;
+
 	//Constructor for Board/
 	public Board(){
 		for(int i = 0; i < ROW; i++){
@@ -53,15 +56,15 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
-							GameLogic.hasMoved = true;
+							hasMoved = true;
 							
 							if(CheckIfWon(pID)){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								//System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
 								return "p1:hasWon";
 							}
 							if(CheckIfFull()){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								//System.out.println("Tie");
 								return"p1:gameTied";
 							}
@@ -86,15 +89,15 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
-							GameLogic.hasMoved = true;
+							hasMoved = true;
 							
 							if(CheckIfWon(pID)){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								//System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
 								return "p2:hasWon";
 							}
 							if(CheckIfFull()){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								//System.out.println("Tie");
 								return "p2:gameTied";
 							}
@@ -123,18 +126,18 @@ public class Board {
 			case 0:  
 				if(BOARD[0][0] == ONE && BOARD[1][1] == ONE && BOARD[2][2] == ONE
 				|| BOARD[2][0] == ONE && BOARD[1][1] == ONE && BOARD[0][2] == ONE){
-					GameLogic.keepPlaying = false;
+					keepPlaying = false;
 					return true;
 				}
 				else{
 					for(int i = 0; i < ROW; i++){
 						for(int j = 0; j < COL; j++){
 							if(BOARD[i][0] == ONE && BOARD[i][1] == ONE && BOARD[i][2] == ONE){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								return true;
 							}
 							else if(BOARD[0][j] == ONE && BOARD[1][j] == ONE && BOARD[2][j] == ONE){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								return true;
 							}
 						}
@@ -145,18 +148,18 @@ public class Board {
 			case 1:  
 				if(BOARD[0][0] == TWO && BOARD[1][1] == TWO && BOARD[2][2] == TWO
 				|| BOARD[2][0] == TWO && BOARD[1][1] == TWO && BOARD[0][2] == TWO){
-					GameLogic.keepPlaying = false;
+					keepPlaying = false;
 					return true;
 				}
 				else{
 					for(int i = 0; i < ROW; i++){
 						for(int j = 0; j < COL; j++){
 							if(BOARD[i][0] == TWO && BOARD[i][1] == TWO && BOARD[i][2] == TWO){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								return true;
 							}
 							else if(BOARD[0][j] == TWO && BOARD[1][j] == TWO && BOARD[2][j] == TWO){
-								GameLogic.keepPlaying = false;
+								keepPlaying = false;
 								return true;
 							}
 						}

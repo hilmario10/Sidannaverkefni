@@ -8,13 +8,9 @@ public class GameLogic {
 
 	public static Player pOne = new Player("", 0);
 	public static Player pTwo = new Player("", 1);
-	public static boolean keepPlaying = true;
-	public static boolean hasMoved = false;
-    //public static Board b1 = new Board();
+    public static Board b = new Board();
 
 	public static void main(String [] args) {
-
-        final Board b = new Board();
 
 		staticFileLocation("/public");
 		String port = System.getenv("PORT");
@@ -30,11 +26,11 @@ public class GameLogic {
         		String p2 = String.valueOf(request.queryParams("p2"));
 
         		if (p1 == "") {
-        			pOne.setName("Player_1");
+        			pOne.setName("Anonymous");
         		}
 
         		if (p2 == "") {
-        			pTwo.setName("Player_2");
+        			pTwo.setName("Anonymous");
         		}
 
         		pOne.setName(p1);
@@ -53,54 +49,66 @@ public class GameLogic {
         		int y = 0;
         		String result = "";
 
-        		switch(colID) {
-        			case 0:	
-        					x = 0;
-        					y = 0;
-        					break;
-        			case 1: 
-        					x = 0;
-        					y = 1;
-        					break;
-        			case 2:
-        					x = 0;
-        					y = 2;
-        					break;
-        			case 3:
-        					x = 1;
-        					y = 0;
-        					break;
-        			case 4:
-        					x = 1;
-        					y = 1;
-        					break;
-        			case 5:
-        					x = 1;
-        					y = 2;
-        					break;
-        			case 6:
-        					x = 2;
-        					y = 0;
-        					break;
-        			case 7:
-        					x = 2;
-        					y = 1;
-        					break;
-        			case 8:
-        					x = 2;
-        					y = 2;
-        					break;	
-        		}			
+                if (b.keepPlaying) {
+                    
+            		switch(colID) {
+            			case 0:	
+            					x = 0;
+            					y = 0;
+            					break;
+            			case 1: 
+            					x = 0;
+            					y = 1;
+            					break;
+            			case 2:
+            					x = 0;
+            					y = 2;
+            					break;
+            			case 3:
+            					x = 1;
+            					y = 0;
+            					break;
+            			case 4:
+            					x = 1;
+            					y = 1;
+            					break;
+            			case 5:
+            					x = 1;
+            					y = 2;
+            					break;
+            			case 6:
+            					x = 2;
+            					y = 0;
+            					break;
+            			case 7:
+            					x = 2;
+            					y = 1;
+            					break;
+            			case 8:
+            					x = 2;
+            					y = 2;
+            					break;	
+            		}			
 
-        		if(playerID == 0){
-        			result = b.SetMove(0, x, y);
-        		}
-        		else if(playerID == 1){
-        			result = b.SetMove(1, x, y);
-        		}
+            		if(playerID == 0){
+            			result = b.SetMove(0, x, y);
+            		}
+            		else if(playerID == 1){
+            			result = b.SetMove(1, x, y);
+            		}
 
-        		return result;
+            		return result;
+                }
+                return null;
        		}
+        });
+
+        post(new Route("/newgame") {
+            @Override
+            public Object handle(Request request, Response response) {
+                Board b = new Board();
+                return true;
+            }
         });
 
 	}
