@@ -102,15 +102,13 @@ public class GameLogic {
        		}
         });
 
-        /*
         post(new Route("/newgame") {
             @Override
             public Object handle(Request request, Response response) {
-                b.Board();
-                b.keepPlaying = true;
+                Board b1 = new Board();
                 return true;
             }
         });
-        */
+        
     }
 }
