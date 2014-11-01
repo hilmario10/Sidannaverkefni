@@ -10,7 +10,7 @@ public class GameLogic {
 	public static Player pTwo = new Player("", 1);
 	public static boolean keepPlaying = true;
 	public static boolean hasMoved = false;
-    public static Board b = new Board();
+    //public static Board b = new Board();
 
 	public static void main(String [] args) {
 
@@ -46,7 +46,8 @@ public class GameLogic {
         post(new Route("/move") {
         	@Override
         	public Object handle(Request request, Response response) { 
-        		Integer playerID = Integer.parseInt(request.queryParams("player"));
+                Board b = new Board();
+                Integer playerID = Integer.parseInt(request.queryParams("player"));
         		Integer colID = Integer.parseInt(request.queryParams("colid"));
         		int x = 0;
         		int y = 0;

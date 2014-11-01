@@ -6,7 +6,7 @@
     <title>T-303-HUGB</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <style type="text/css">
-         .center {
+        .center {
             margin-left: auto;
             margin-right: auto;
             text-align: center;
@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p>
-                        <span id="winner_name"></span>
+                        <span id="winner_name" style="color:green"></span>
                     </p>
                     <button id="btnNewGame" type="button" class="btn btn-default" onClick="window.location.reload()">New game</button>
                 </div>
@@ -135,10 +135,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            var frm = $('#secForm');
             var p1;
             var p2;
-            var frm = $('#secForm');
             var playerID = 0;
+            var colID;
+            var data;
 
             $('#tableSec').hide();
             $('#nameSec').hide();
@@ -163,13 +165,13 @@
             });
 
             $('td').click(function() {
-                var colID = this;
+                colID = this;
                 $.ajax({
                     type: "post",
                     url: "/move",
                     data: 'player=' + playerID + '&colid=' + colID.id
                 }).done(function(result) {
-                    var data = result.split(":");
+                    data = result.split(":");
                     if (data[0] === 'p1' && data[1] === 'go') {
                         $(colID).html("X");
                         playerID = 1;
