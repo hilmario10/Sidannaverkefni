@@ -134,7 +134,7 @@
                 $.ajax({
                     type: "post",
                     url: "/move",
-                    data: 'player=' + playerID + '&colid' + colID.id
+                    data: 'player=' + playerID + '&colid=' + colID.id
                 }).done(function(result) {
                     var data = result.split(":");
                     if (data[0] === 'p1' && data[1] === 'go') {
