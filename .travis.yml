@@ -1,12 +1,13 @@
 language: java
-jdk: 
-  - openjdk7
+jdk:
+- openjdk7
 before_deploy:
-  - ./gradlew check
-  - ./gradlew seleniumXvfb
+- ./gradlew check
+- ./gradlew seleniumXvfb
 deploy:
   provider: heroku
-  api_key:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC/gCEhVyO5BG+LVtEJR9mza2AYFNQMyizw+o6chez4L5Wervrtlmovt2OkZfq9vmhEGMNLRDx0+jUwQloyBeALij8emsfVZyH1E2lw+6Be8nJpTUMPzLHsMJg805fol7ki2kmabCVax5CGynOba9Nfcr4iJANKIDQPhsWpw4/wdw==
+  api_key:
+    secure: f5Oks1DvSvJMsMwIC3+5pwYMD786peNFEy9Fsqunc1/BUMj760ScXpNvuyaqyQeJ+xHSqI3cAbxGPAkxjI+JKBiufx7l9ml0oHnFXRrs8faO3DAv+bWsMHSx/Wryvx0PVWTknL+IqJMjgEyzhYi9MdyMwZGSg7CGPLvs+MjaRZA=
   app:
     master: hilmario10
   on:
