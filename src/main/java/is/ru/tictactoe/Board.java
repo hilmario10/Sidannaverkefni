@@ -45,7 +45,7 @@ public class Board {
 	}
 	
 	// Sets a players move on the BOARD. 
-	public void SetMove(int pID, int x, int y){
+	public String SetMove(int pID, int x, int y){
 
 		switch(pID){
 			case 0: 
@@ -58,28 +58,35 @@ public class Board {
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
 								System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
-								break;
+								 return "p1:hasWon";
+								//break;
 							}
 							if(CheckIfFull()){
 								GameLogic.keepPlaying = false;
 								System.out.println("Tie");
-								break;
+								 return "p1:gameTied";
+								//break;
 							}
+							 return "p1:go";
 
 						}
 						else{
 							System.out.println("This field is occupied");
-							break;
+							 return "p1:occupied";
+							//break;
 						}
 					}
 					else{
-						throw new IllegalArgumentException("Y-cord not allowed");
+						 return "p1:illegalY";
+						//throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					throw new IllegalArgumentException("X-cord not allowed");
+					 return "p1:illegalX";
+					//throw new IllegalArgumentException("X-cord not allowed");
+
 				}
-				break;
+				//break;
 			case 1: 
 				if(LegalMove(x)){
 					if(LegalMove(y)){
@@ -90,28 +97,35 @@ public class Board {
 							if(CheckIfWon(pID)){
 								GameLogic.keepPlaying = false;
 								System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
-								break;
+								 return "p2:hasWon";
+								//break;
 							}
 							if(CheckIfFull()){
 								GameLogic.keepPlaying = false;
 								System.out.println("Tie");
-								break;
+								 return "p2:gameTied";
+								//break;
 							}
+							return "p2:go";
 						}
 						else{
 							System.out.println("This field is occupied");
-							break;
+							return "p2:occupied";
+							//break;
 						}
 					}
 					else{
-						throw new IllegalArgumentException("Y-cord not allowed");
+						return "p2:illegalY";
+						//throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					throw new IllegalArgumentException("X-cord not allowed");
+					return "p2;illegalX";
+					//throw new IllegalArgumentException("X-cord not allowed");
 				}
-				break;
+				//break;
 		}
+		return "Unknown Error";
 	}
 
 	public boolean CheckIfWon(int pID){
