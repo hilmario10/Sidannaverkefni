@@ -106,7 +106,7 @@ public class GameLogic {
         post(new Route("/newgame") {
             @Override
             public Object handle(Request request, Response response) {
-                Board b = new Board();
+                GameLogic g = new GameLogic();
                 return true;
             }
         });
