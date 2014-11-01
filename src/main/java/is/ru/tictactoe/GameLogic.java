@@ -46,8 +46,8 @@ public class GameLogic {
         post(new Route("/move") {
         	@Override
         	public Object handle(Request request, Response response) { 
-        		Int playerID = Integer.parseInt("player");
-        		Int colID = Integer.parseInt("colid"));
+        		int playerID = Integer.parseInt("player");
+        		int colID = Integer.parseInt("colid");
         		int x = 0;
         		int y = 0;
         		String result = "";
@@ -94,7 +94,7 @@ public class GameLogic {
         		if(playerID == 0){
         			result = b.SetMove(0, x, y);
         		}
-        		else if(pID == 1){
+        		else if(colID == 1){
         			result = b.SetMove(1, x, y);
         		}
 
