@@ -1,14 +1,12 @@
 language: java
 jdk:
 - openjdk7
-before_deploy:
-- ./gradlew check
-- ./gradlew seleniumXvfb
 deploy:
-  provider: heroku
   api_key:
-    secure: f5Oks1DvSvJMsMwIC3+5pwYMD786peNFEy9Fsqunc1/BUMj760ScXpNvuyaqyQeJ+xHSqI3cAbxGPAkxjI+JKBiufx7l9ml0oHnFXRrs8faO3DAv+bWsMHSx/Wryvx0PVWTknL+IqJMjgEyzhYi9MdyMwZGSg7CGPLvs+MjaRZA=
+    secure: oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
   app:
     master: hilmario10
   on:
     repo: hilmario10/Sidannaverkefni
+before_deploy:
+- sh bin/b4dploy
