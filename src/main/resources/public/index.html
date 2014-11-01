@@ -158,6 +158,12 @@
                     else if (data[0] === 'p2' && data[1] === 'hasWon') {
                         $(colID).html("O");
                     }
+                    else if (data[0] === 'p1' && data[1] === 'gameTied') {
+                        $(colID).html("X");
+                    }
+                    else if (data[0] === 'p2' && data[1] === 'gameTied') {
+                        $(colID).html("O");
+                    }
                 });
             });
         });
