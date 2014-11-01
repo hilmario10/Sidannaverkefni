@@ -43,5 +43,27 @@ public class GameLogic{
         	}
         });
 
+       /* post(new Route("/move"){
+        	@Override
+        	public Object handle(Request request, Response response){
+        		String playerID = String.valuef(request.queryParams("player"));
+        		String x = String.valueOf(request.queryParams("fieldID-x"));
+        		String y = String.valueOf(request.queryParams("fieldID-y"));
+        		int newX = Integer.parseInt(x);
+        		int newY = Integer.parseInt(y);
+        		String madeMove = "";
+
+        		int pID = Integer.parseInt(playerID);
+        		if(pID == 0){
+        			madeMove = b.setMove(0, newX, newY);
+        		}
+        		else if(pID == 1){
+        			madeMove = b.setMove(1, newX, newY);
+        		}
+        		return madeMove;
+        	}
+        })*/
+
+
 	}
 }
