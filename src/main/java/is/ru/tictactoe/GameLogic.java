@@ -14,7 +14,7 @@ public class GameLogic {
 
 	public static void main(String [] args) {
 
-        Board b = new Board();
+        final Board b = new Board();
 
 		staticFileLocation("/public");
 		String port = System.getenv("PORT");
