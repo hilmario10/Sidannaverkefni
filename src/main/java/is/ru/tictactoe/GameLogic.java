@@ -43,7 +43,7 @@ public class GameLogic{
         	}
         });
 
-        /*post(new Route("/move"){
+        post(new Route("/move"){
         	@Override
         	public Object handle(Request request, Response response){
         		String playerID = String.valueOf(request.queryParams("player"));
@@ -100,7 +100,7 @@ public class GameLogic{
 		        		}
 	        		return result;
         		}
-        });*/
+        });
 
 
 	}
