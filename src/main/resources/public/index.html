@@ -135,8 +135,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            var p1 = $("#p1").val();
-            var p2 = $("#p2").val();
+            var p1;
+            var p2;
             var frm = $('#secForm');
             var playerID = 0;
 
@@ -145,6 +145,8 @@
             $('#winSec').hide();
             $('#tieSec').hide();     
             frm.submit(function(ev) {
+                p1 = $("#p1").val();
+                p2 = $("#p2").val();
                 $.ajax({
                     type: frm.attr("method"),
                     url: frm.attr("action"),
