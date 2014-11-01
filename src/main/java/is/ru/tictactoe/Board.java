@@ -68,7 +68,7 @@ public class Board {
 							return "p1:go";
 						}
 						else{
-							//System.out.println("This field is occupied");
+							System.out.println("P2 - This field is occupied");
 							return "p1:occupied";
 						}
 					}
@@ -101,7 +101,7 @@ public class Board {
 							return "p2:go";
 						}
 						else{
-							//System.out.println("This field is occupied");
+							System.out.println("P1 - This field is occupied");
 							return "p2:occupied";
 						}
 					}

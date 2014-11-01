@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <p>
-                        <span id="p1_name" style="color:blue"></span>
+                        <span id="p1_name" style="color:blue"></span><br>
                         <span id="p2_name" style="color:red"></span>
                     </p>
                 </div>
@@ -135,6 +135,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
+            var p1 = $("#p1").val();
+            var p2 = $("#p2").val();
             var frm = $('#secForm');
             var playerID = 0;
 
@@ -143,8 +145,6 @@
             $('#winSec').hide();
             $('#tieSec').hide();     
             frm.submit(function(ev) {
-                var p1 = $("#p1").val();
-                var p2 = $("#p2").val();
                 $.ajax({
                     type: frm.attr("method"),
                     url: frm.attr("action"),
