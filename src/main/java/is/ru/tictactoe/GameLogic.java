@@ -4,7 +4,7 @@ import static spark.Spark.*;
 import spark.*;
 import spark.servlet.SparkApplication;
 
-public class GameLogic {
+public class GameLogic{
 
 	public static Player pOne = new Player("", 0);
 	public static Player pTwo = new Player("", 1);

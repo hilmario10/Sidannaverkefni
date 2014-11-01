@@ -6,8 +6,7 @@ before_deploy:
   - ./gradlew seleniumXvfb
 deploy:
   provider: heroku
-  api_key:nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4GIgqXdPOkehPwITfExrH+NrT\nq3uJlNS0ZWeEd/QCVLayVGTScAzYrJZcC3hw09rHe9fQv0VRtvfGN1O4Zh4Q1cTI\n1DBswD5F68SFxWN/DbPafCmu+wuCEr767iCqw8JwxynChyRYMOcdf22VQz8QUbfb\nCKwHayMOtCC8XiPLBQIDAQAB
-    secure:
+  api_key:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC/gCEhVyO5BG+LVtEJR9mza2AYFNQMyizw+o6chez4L5Wervrtlmovt2OkZfq9vmhEGMNLRDx0+jUwQloyBeALij8emsfVZyH1E2lw+6Be8nJpTUMPzLHsMJg805fol7ki2kmabCVax5CGynOba9Nfcr4iJANKIDQPhsWpw4/wdw==
   app:
     master: hilmario10
   on:
