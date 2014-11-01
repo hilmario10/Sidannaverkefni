@@ -24,7 +24,7 @@ public class GameLogic {
         post(new Route("/name") {
         	@Override
         	public Object handle(Request request, Response response) {
-        		
+
         		String p1 = String.valueOf(request.queryParams("p1"));
         		String p2 = String.valueOf(request.queryParams("p2"));
 
@@ -94,7 +94,7 @@ public class GameLogic {
         		if(playerID == 0){
         			result = b.SetMove(0, x, y);
         		}
-        		else if(colID == 1){
+        		else if(playerID == 1){
         			result = b.SetMove(1, x, y);
         		}
 

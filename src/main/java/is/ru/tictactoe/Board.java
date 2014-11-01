@@ -59,37 +59,28 @@ public class Board {
 								GameLogic.keepPlaying = false;
 								//System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
 								return "p1:hasWon";
-								break;
 							}
 							if(CheckIfFull()){
 								GameLogic.keepPlaying = false;
 								//System.out.println("Tie");
-								return "p1:gameTied";
-								break;
+								return"p1:gameTied";
 							}
 							return "p1:go";
-							break;
-
 						}
 						else{
 							//System.out.println("This field is occupied");
 							return "p1:occupied";
-							break;
 						}
 					}
 					else{
 						//return "p1:illegalY";
 						throw new IllegalArgumentException("Y-cord not allowed");
-						break;
 					}
 				}
 				else{
 					//return "p1:illegalX";
 					throw new IllegalArgumentException("X-cord not allowed");
-					break;
-
 				}
-				break;
 			case 1: 
 				if(LegalMove(x)){
 					if(LegalMove(y)){
@@ -101,36 +92,30 @@ public class Board {
 								GameLogic.keepPlaying = false;
 								//System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
 								return "p2:hasWon";
-								break;
 							}
 							if(CheckIfFull()){
 								GameLogic.keepPlaying = false;
 								//System.out.println("Tie");
 								return "p2:gameTied";
-								break;
 							}
 							return "p2:go";
-							break;
 						}
 						else{
 							//System.out.println("This field is occupied");
 							return "p2:occupied";
-							break;
 						}
 					}
 					else{
 						//return "p2:illegalY";
 						throw new IllegalArgumentException("Y-cord not allowed");
-						break;
 					}
 				}
 				else{
 					//return "p2;illegalX";
 					throw new IllegalArgumentException("X-cord not allowed");
-					break;
 				}
-				break;
 		}
+		return "Unknown error";
 	}
 
 	public boolean CheckIfWon(int pID){
