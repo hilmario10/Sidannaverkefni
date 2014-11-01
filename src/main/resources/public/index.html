@@ -213,7 +213,7 @@
                 });
             });
 
-            $("#btnNewGame").submit(function(ev)) {
+            $("#btnNewGame").click(function(ev)) {
                 $.ajax({
                     type: "post",
                     url: "/newgame",
