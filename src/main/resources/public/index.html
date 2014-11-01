@@ -117,9 +117,22 @@
             var btnNewGame = $("#btnNewGame");
             var btnSubmit = $("#btnSubmit");
             $('#cordSec').hide();
-            btnNewGame.click(function() {
+            var form = $('form');
+            form.submit(function() {
                 $('#nameSec').hide();
                 $('#cordSec').Show();
+                player1 = $("p1").val();
+                player2 = $("p2").val();
+                ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: 'player1=' + player1 + '&player2=' + player2
+                }).done(function(sum){
+                    if(sum){
+                        $('#tableSec').show();
+                        $('#nameSec').hide();
+                    }
+                })
            });
         });
     </script>
