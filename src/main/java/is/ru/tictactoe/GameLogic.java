@@ -46,8 +46,8 @@ public class GameLogic {
         post(new Route("/move") {
         	@Override
         	public Object handle(Request request, Response response) { 
-        		int playerID = Integer.parseInt("player");
-        		int colID = Integer.parseInt("colid");
+        		Integer playerID = Integer.parseInt(request.queryParams("player"));
+        		Integer colID = Integer.parseInt(request.queryParams("colid"));
         		int x = 0;
         		int y = 0;
         		String result = "";
