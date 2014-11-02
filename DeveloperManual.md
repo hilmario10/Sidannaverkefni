@@ -35,21 +35,23 @@ Install information for Linux:
 Gradle setup:
 - Gradle that is installable via “apt-get” on the GreenQloud servers is Gradle 1.4, to update to a newer version the following must be done:
 
-- 1. Add the following software: software-properties-common
+- 1.Add the following software: software-properties-common
 
-		1.1. sudo apt-get install software-properties-common
+		sudo apt-get install software-properties-common
 
-		1.2. If you have issues with that run: sudo apt-get install python-software-common
+		If you have issues with that run: 
+		sudo apt-get install python-software-common
 
 - 2.Add the following apt-repo: ppa:cwchien/gradle
 
-		2.1. sudo add-apt-repository ppa:cwchien/gradle
+		sudo add-apt-repository ppa:cwchien/gradle
 
 - 3.Update sources:
 
-		3.1. sudo apt-get update
+		sudo apt-get update
+
 - 4.Install new Gradle version:
 
-		4.1. sudo apt-get install gradle
+		sudo apt-get install gradle
 
 You should now have Gradle 2.1 installed.
