@@ -8,52 +8,52 @@ public class GameLogic implements SparkApplication {
 
 	public static Player pOne = new Player("",0);
 	public static Player pTwo = new Player("",1);
-    public static Board b = new Board();
+  public static Board b = new Board();
 
-	public static void main(String [] args) {
+	public static void main(String [] args){
         staticFileLocation("/public");
         SparkApplication gamelogic = new GameLogic();
-		String port = System.getenv("PORT");
+		    String port = System.getenv("PORT");
 
-       	if (port != null) {
-       		setPort(Integer.valueOf(port));
+       	if (port != null){
+          setPort(Integer.valueOf(port));
         }
         gamelogic.init();
     }
 
-    public void init() {
+    public void init(){
         //final Board b = new Board();
-        post(new Route("/name") {
+        post(new Route("/name"){
            	@Override
-           	public Object handle(Request request, Response response) {
+           	public Object handle(Request request, Response response){
            		String p1 = String.valueOf(request.queryParams("p1"));
            		String p2 = String.valueOf(request.queryParams("p2"));
 
-           		if (p1 == "") {
+           		if (p1 == ""){
            			pOne.setName("Anonymous");
            		}
 
-           		if (p2 == "") {
+           		if (p2 == ""){
            			pTwo.setName("Anonymous");
            		}
 
            		pOne.setName(p1);
            		pTwo.setName(p2);
 
-    			return true;
+              return true;
            	}
         });
 
-        post(new Route("/move") {
+        post(new Route("/move"){
            	@Override
-           	public Object handle(Request request, Response response) { 
-                Integer playerID = Integer.parseInt(request.queryParams("player"));
+           	public Object handle(Request request, Response response){ 
+              Integer playerID = Integer.parseInt(request.queryParams("player"));
            		Integer colID = Integer.parseInt(request.queryParams("colid"));
            		int x = 0;
            		int y = 0;
            		String result = "";
 
-                if (b.keepPlaying) {
+                if (b.keepPlaying){
                         
                		switch(colID) {
                			case 0:	
@@ -107,9 +107,9 @@ public class GameLogic implements SparkApplication {
        		}
         });
 
-        post(new Route("/newgame") {
+        post(new Route("/newgame"){
             @Override
-            public Object handle(Request request, Response response) {
+            public Object handle(Request request, Response response){
                 b.Init();
                 b.keepPlaying = true;
                 return true;
