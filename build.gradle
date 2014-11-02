@@ -1,7 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'net.saliman.cobertura'
 
 mainClassName = "is.ru.tictactoe.GameLogic"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.5"
+    }
+}
 
 jar {
     manifest {
