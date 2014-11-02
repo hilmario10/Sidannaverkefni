@@ -24,7 +24,7 @@ public class CreateNewGame {
   }
 
   @Test
-  public void testPlayer1Wins() throws Exception {
+  public void testCreateNewGame() throws Exception {
     driver.get(baseUrl + "/");
     driver.findElement(By.id("p1")).clear();
     driver.findElement(By.id("p1")).sendKeys("Nonni");
