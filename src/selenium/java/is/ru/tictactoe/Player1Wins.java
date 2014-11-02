@@ -1,77 +1,76 @@
-package com.example.tests;
-
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
+package is.ru.tictactoe;
+import com.thoughtworks.selenium.Selenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+// import junit.framework.TestCase;
+import static org.junit.Assert.*;
 
+
+/**
+ * Created by: arni11, bjarnthor12, sigruns12, sindris12, sindri12, theodor11 & thordurt12
+ * Copyright (c) 2013
+ * Project: TicTacToe
+ * Package: com.example.tests
+ * Date: 19/11/13
+ */
+
+/**
+ * Tests new game.
+ */
 public class Player1Wins {
-  private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
+  /**
+   * Selenium var.
+   */
+  private Selenium selenium;
 
+  /**
+   * Setup the selenium test.
+   * @throws Exception throws exception.
+   */
   @Before
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = "https://harlemhug.herokuapp.com/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    WebDriver driver = new FirefoxDriver();
+    String baseUrl = System.getenv("STAGING_SERVER");
+    selenium = new WebDriverBackedSelenium(driver, baseUrl);
   }
 
+  /**
+   * Tests new game.
+   * @throws Exception throws exception.
+   */
   @Test
-  public void testPlayer1Wins() throws Exception {
-    driver.get(baseUrl + "/");
-    driver.findElement(By.id("p1")).clear();
-    driver.findElement(By.id("p1")).sendKeys("Nonni");
-    driver.findElement(By.id("p2")).clear();
-    driver.findElement(By.id("p2")).sendKeys("Anton");
-    driver.findElement(By.cssSelector("button.btn.btn-default")).click();
-    driver.findElement(By.id("btnNewGame")).click();
+  public void testNewGame() throws Exception {
+    selenium.open("/");
+    selenium.type("id=a", "Player1");
+    selenium.type("id=b", "Player2");
+    selenium.click("css=button.btn.btn-default");
+    selenium.waitForPageToLoad("5000");
+    
+    selenium.click("0");
+    Thread.sleep(1000);
+    selenium.click("3");
+    Thread.sleep(1000);
+    selenium.click("1");
+    Thread.sleep(1000);
+    selenium.click("4");
+    Thread.sleep(1000);
+    selenium.click("3");
+    Thread.sleep(1000);
+    selenium.click("8");
+    
+
   }
 
+  /**
+   * Stops selenium.
+   * @throws Exception throws exception.
+   */
   @After
   public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
+    selenium.stop();
   }
 }
