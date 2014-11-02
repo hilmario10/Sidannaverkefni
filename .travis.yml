@@ -12,5 +12,5 @@ deploy:
     master: hilmario10
   on:
     repo: hilmario10/Sidannaverkefni
-#before_deploy:
-#- sh bin/b4dploy
+before_deploy:
+- sh bin/b4dploy
