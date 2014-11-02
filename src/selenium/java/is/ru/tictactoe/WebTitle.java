@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Player1Wins {
+public class WebTitle {
 
   private WebDriver driver;
   private String baseUrl;
@@ -24,17 +24,9 @@ public class Player1Wins {
   }
 
   @Test
-  public void testPlayer1Wins() throws Exception {
+  public void testTitle() throws Exception {
     driver.get(baseUrl + "/");
-    driver.findElement(By.id("p1")).clear();
-    driver.findElement(By.id("p1")).sendKeys("Nonni");
-    driver.findElement(By.id("p2")).clear();
-    driver.findElement(By.id("p2")).sendKeys("Anton");
-    driver.findElement(By.cssSelector("button.btn.btn-default")).click();
-    driver.findElement(By.id("0")).click();
-    Thread.sleep(1000);
-    assertEquals("X", driver.findElement(By.id("0")).getText());
-
+    assertEquals("T-303-HUGB", driver.getTitle());
   }
 
   @After
