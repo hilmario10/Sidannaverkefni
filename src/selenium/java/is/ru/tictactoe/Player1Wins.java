@@ -1,4 +1,4 @@
-package is.ru.tictactoe;
+package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -30,16 +30,7 @@ public class Player1Wins {
     driver.findElement(By.id("p2")).clear();
     driver.findElement(By.id("p2")).sendKeys("Anton");
     driver.findElement(By.cssSelector("button.btn.btn-default")).click();
-    driver.findElement(By.id("4")).click();
-    driver.findElement(By.id("5")).click();
-    driver.findElement(By.id("2")).click();
-    driver.findElement(By.id("6")).click();
-    driver.findElement(By.id("0")).click();
-    driver.findElement(By.id("1")).click();
-    driver.findElement(By.id("8")).click();
-    assertEquals("X", driver.findElement(By.id("0")).getText());
-    assertEquals("X", driver.findElement(By.id("4")).getText());
-    assertEquals("X", driver.findElement(By.id("8")).getText());
+    driver.findElement(By.id("btnNewGame")).click();
   }
 
   @After
