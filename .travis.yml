@@ -4,6 +4,7 @@ jdk:
 before_deploy:
 - ./gradlew check
 #- ./gradlew seleniumXvfb
+#gefur villu a travis
 - sh bin/b4dploy
 deploy:
   provider: heroku
@@ -15,6 +16,6 @@ deploy:
     repo: hilmario10/Sidannaverkefni
 before_install:
 - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-#- git remote add heroku
+- git remote add heroku git@heroku.com:hilmario10.git
 install:
 - gem install heroku
