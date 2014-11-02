@@ -17,6 +17,6 @@ deploy:
 before_install:
 - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 - git remote add heroku git@heroku.com:hilmario10.git
-- git push heroku master
+- yes | git push heroku master
 install:
 - gem install heroku
