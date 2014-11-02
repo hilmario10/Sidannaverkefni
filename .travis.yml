@@ -23,8 +23,7 @@ before_install:
 - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
 - echo "   CheckHostIP no" >> ~/.ssh/config
 - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-- heroku keys:clear
-- yes | heroku keys:add
-- yes | git push -f heroku master
+#- yes | heroku keys:add
+- heroku push --app hilmario10
 install:
 - gem install heroku
