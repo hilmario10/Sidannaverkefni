@@ -7,12 +7,11 @@ env:
   - secure: O4mx2AfFRcnJgJ6ISadtn5BZTxlgF1F/V0ADloHIHQsOssA9BXOQlZUchNHVUlgI/ooRS66N/hKiCyr7BU+NhXm7Ajd9HWzhvzYTHIAeOwWriDEGcF+vjHPFc0aaO40/gfvSUYi5WgV26/rtjj81AWWo9f1wqLgFGM3gSo2jI4w=
 before_deploy:
 - ./gradlew check
-#- ./gradlew seleniumXvfb
 - sh bin/b4dploy
 deploy:
   provider: heroku
   api_key:
-    secure: VR5Mh9bP+PptrhpP3y+FPqXVbkKNBtvGwaZokPB1qHwMejyRyDiuvV5HRDO589F5TYLyU0A3YvXfinDj3I+7hKteBlKnCDI1DSNV+gDCdSh47HfPcj3QJql+f67pudeIdTMek7XTZI5iEzdeAc8ksN5/FbyItdRGWyfapLLfmYo=
+    secure: vf593zwPXtPuDpVX1w8N/xvxcu1J8QYlu5uwubZYG9FB/Y/ChCYHFWZcBgXYLaNVmjC52mEXp+RmfQTv1nUqauh5BUqCrxJWV334DhK1AVvqecUVPck6EB8GmEmK80xqAypH+Uwz3IVRp5WYzrFZmfbitMcpNFLMVsmp3/nmfXw=
   app:
     master: hilmario10
   on:
@@ -28,4 +27,3 @@ before_install:
 - yes | git push -f heroku master
 install:
 - gem install heroku
-#- gem install selenium-webdriver
