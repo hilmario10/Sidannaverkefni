@@ -3,7 +3,7 @@ jdk:
 - openjdk7
 before_deploy:
 - ./gradlew check
-- ./gradlew seleniumXvfb
+#- ./gradlew seleniumXvfb
 - sh bin/b4dploy
 deploy:
   provider: heroku
