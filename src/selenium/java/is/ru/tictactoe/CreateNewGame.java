@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Player1Wins {
+public class CreateNewGame {
 
   private WebDriver driver;
   private String baseUrl;
@@ -31,10 +31,6 @@ public class Player1Wins {
     driver.findElement(By.id("p2")).clear();
     driver.findElement(By.id("p2")).sendKeys("Anton");
     driver.findElement(By.cssSelector("button.btn.btn-default")).click();
-    driver.findElement(By.id("0")).click();
-    Thread.sleep(1000);
-    assertEquals("X", driver.findElement(By.id("0")).getText());
-
   }
 
   @After
