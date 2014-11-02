@@ -1,42 +1,7 @@
-language: java
-jdk:
-- openjdk7
-env:
- global:
- - secure: oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
-before_deploy:
-- ./gradlew check
-#- ./gradlew seleniumXvfb
-#gefur villu a travis
-- sh bin/b4dploy
-#deploy:
-#  provider: heroku
-#  api_key:
-#    secure: oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
-#  app:
-#    master: hilmario10
-#  on:
-#    repo: hilmario10/Sidannaverkefni
-before_install:
-- wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-- git remote add heroku git@heroku.com:hilmario10.git
-- export HEROKU_API_KEY=oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
-#- echo "Host heroku.com" >> ~/.ssh/config
-#- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-#- echo "   CheckHostIP no" >> ~/.ssh/config
-#- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-#- yes | heroku keys:add
-#- yes | git push -f heroku master
-install:
-- gem install heroku
-#before_script:
- # - echo -e "Host heroku.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  #- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-after_success:
-- echo "Host heroku.com" >> ~/.ssh/config
-- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-- echo "   CheckHostIP no" >> ~/.ssh/config
-- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-- heroku keys:clear
-- yes | heroku keys:add
-- yes | git push -f heroku master
+deploy:
+  provider: heroku
+  api_key:
+    secure: vuSGBb+eEejhJVm9UZQPxP8wlZTp3wATeXgUcDl6PyGxhERcwhzUn3Pe2lsQr/ljoAl0p6Q45vqgw84KP7C2G8MzmbFR8U65/QgwseQqxiuI7ecYtaIIpr7wj6gApJvP93091SgZlz4yt5RMs0Pt/ydOeeQS3oXuC8LgOWMTU2c=
+  app: Sidannaverkefni
+  on:
+    repo: hilmario10/Sidannaverkefni
