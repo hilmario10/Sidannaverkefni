@@ -20,3 +20,6 @@ before_install:
 - yes | git push -f heroku master
 install:
 - gem install heroku
+before_script:
+  - echo -e "Host heroku.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
