@@ -20,6 +20,10 @@ public class Board {
 
 	//Constructor for Board/
 	public Board(){
+		Init();
+	}
+
+	public void Init(){
 		for(int i = 0; i < ROW; i++){
 			for(int j = 0; j < COL; j++){
 				BOARD[i][j] = FREE;

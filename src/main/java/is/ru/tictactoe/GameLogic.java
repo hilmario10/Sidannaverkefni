@@ -4,20 +4,25 @@ import static spark.Spark.*;
 import spark.*;
 import spark.servlet.SparkApplication;
 
-public class GameLogic {
+public class GameLogic implements SparkApplication {
 
 	public static Player pOne = new Player("",0);
 	public static Player pTwo = new Player("",1);
-    public static final Board b = new Board();
+    public static Board b = new Board();
 
 	public static void main(String [] args) {
         staticFileLocation("/public");
+        SparkApplication gamelogic = new GameLogic();
 		String port = System.getenv("PORT");
 
        	if (port != null) {
        		setPort(Integer.valueOf(port));
         }
+        gamelogic.init();
+    }
 
+    public void init() {
+        //final Board b = new Board();
         post(new Route("/name") {
            	@Override
            	public Object handle(Request request, Response response) {
@@ -105,10 +110,11 @@ public class GameLogic {
         post(new Route("/newgame") {
             @Override
             public Object handle(Request request, Response response) {
-                Board b1 = new Board();
+                b.Init();
+                b.keepPlaying = true;
                 return true;
             }
         });
-        
+
     }
 }
