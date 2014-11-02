@@ -24,6 +24,6 @@ before_install:
 - echo "   CheckHostIP no" >> ~/.ssh/config
 - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
 #- yes | heroku keys:add
-- heroku push --app hilmario10
 install:
 - gem install heroku
+- heroku push --app hilmario10
