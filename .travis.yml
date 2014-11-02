@@ -19,9 +19,10 @@ before_install:
 - git remote add heroku git@heroku.com:hilmario10.git
 - echo "Host heroku.com" >> ~/.ssh/config
 - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-- echo "   CheckHostIP no" >> ~/.ssh/config
-- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-#- yes | heroku keys:add
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+#- echo "   CheckHostIP no" >> ~/.ssh/config
+#- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+- yes | heroku keys:add
 - yes | git push -f heroku master
 install:
 - gem install heroku
