@@ -8,17 +8,13 @@ public class Board {
 	
 	public static final int ROW = 3;
 	public static final int COL = 3;
-
 	public static final int FREE = 0;
 	public static final int ONE = 1;
 	public static final int TWO = 2;
-
 	public static final int [][] BOARD = new int [ROW][COL];
-
 	public static boolean keepPlaying = true;
-	//public static boolean hasMoved = false;
 
-	//Constructor for Board/
+	// Constructor for Board.
 	public Board(){
 		Init();
 	}
@@ -39,7 +35,7 @@ public class Board {
 		return true;
 	}
 
-	// Check if BOARD is full, If BOARD is full then the game ends in a tie.
+	// Check if BOARD is full, if BOARD is full then the game ends in a tie.
 	public boolean CheckIfFull(){
 		for(int i = 0; i < ROW; i++){
 			for(int j = 0; j < COL; j++){
@@ -60,16 +56,13 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = ONE;
-							//hasMoved = true;
 							
 							if(CheckIfWon(pID)){
 								keepPlaying = false;
-								//System.out.println("Congrats " + GameLogic.pOne.getName() + " you have won the game");
 								return "p1:hasWon";
 							}
 							if(CheckIfFull()){
 								keepPlaying = false;
-								//System.out.println("Tie");
 								return"p1:gameTied";
 							}
 							return "p1:go";
@@ -80,12 +73,10 @@ public class Board {
 						}
 					}
 					else{
-						//return "p1:illegalY";
 						throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					//return "p1:illegalX";
 					throw new IllegalArgumentException("X-cord not allowed");
 				}
 			case 1: 
@@ -93,16 +84,13 @@ public class Board {
 					if(LegalMove(y)){
 						if(CheckIfFree(x, y)){
 							BOARD[x][y] = TWO;
-							//hasMoved = true;
 							
 							if(CheckIfWon(pID)){
 								keepPlaying = false;
-								//System.out.println("Congrats "  + GameLogic.pTwo.getName() + " you have won the game");
 								return "p2:hasWon";
 							}
 							if(CheckIfFull()){
 								keepPlaying = false;
-								//System.out.println("Tie");
 								return "p2:gameTied";
 							}
 							return "p2:go";
@@ -113,18 +101,17 @@ public class Board {
 						}
 					}
 					else{
-						//return "p2:illegalY";
 						throw new IllegalArgumentException("Y-cord not allowed");
 					}
 				}
 				else{
-					//return "p2;illegalX";
 					throw new IllegalArgumentException("X-cord not allowed");
 				}
 		}
 		return "Unknown error";
 	}
 
+	// Checks which player has won the game.
 	public boolean CheckIfWon(int pID){
 		switch(pID){
 			case 0:  
@@ -148,7 +135,6 @@ public class Board {
 					}
 					return false;
 				}
-
 			case 1:  
 				if(BOARD[0][0] == TWO && BOARD[1][1] == TWO && BOARD[2][2] == TWO
 				|| BOARD[2][0] == TWO && BOARD[1][1] == TWO && BOARD[0][2] == TWO){
@@ -174,6 +160,7 @@ public class Board {
 		return false;
 
 	}
+	
 	// Check if Field on the BOARD is free to make a move.
 	public boolean CheckIfFree(int x, int y){
 		if(BOARD[x][y] == FREE){
@@ -195,6 +182,7 @@ public class Board {
 		}
 	}
 
+	// Prints board.
 	public void PrintBoard(){
 		for(int i = 0; i < ROW; i++){
 			for(int j = 0; j < COL; j++){
@@ -205,6 +193,4 @@ public class Board {
 		}
 	}
 	
-
-
 }
