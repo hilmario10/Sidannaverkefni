@@ -24,7 +24,7 @@ before_install:
 #- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
 #- echo "   CheckHostIP no" >> ~/.ssh/config
 #- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-#- yes | heroku keys:add
+- yes | heroku keys:add
 - yes | git push -f heroku master
 install:
 - gem install heroku
