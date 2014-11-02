@@ -17,9 +17,8 @@ deploy:
 before_install:
 - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 - git remote add heroku git@heroku.com:hilmario10.git
+- echo -e "Host heroku.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - yes | git push -f heroku master
 install:
 - gem install heroku
-before_script:
-  - echo -e "Host heroku.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
