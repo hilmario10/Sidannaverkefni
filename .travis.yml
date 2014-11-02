@@ -5,6 +5,7 @@ before_deploy:
 - ./gradlew check
 - ./gradlew seleniumXvfb
 deploy:
+  provider: heroku
   api_key:
     secure: oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
   app:
