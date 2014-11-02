@@ -156,7 +156,7 @@
                 $.ajax({
                     type: frm.attr("method"),
                     url: frm.attr("action"),
-                    data: frm.serialize(),
+                    data: frm.serialize()
                 }).function(result) {
                     if (result) {
                         $('#p1_name').html("Player 1: " + p1);
