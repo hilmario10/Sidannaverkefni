@@ -7,7 +7,7 @@ env:
   - secure: O4mx2AfFRcnJgJ6ISadtn5BZTxlgF1F/V0ADloHIHQsOssA9BXOQlZUchNHVUlgI/ooRS66N/hKiCyr7BU+NhXm7Ajd9HWzhvzYTHIAeOwWriDEGcF+vjHPFc0aaO40/gfvSUYi5WgV26/rtjj81AWWo9f1wqLgFGM3gSo2jI4w=
 before_deploy:
 - ./gradlew check
-- ./gradlew seleniumXvfb
+#- ./gradlew seleniumXvfb
 - sh bin/b4dploy
 deploy:
   provider: heroku
@@ -24,8 +24,8 @@ before_install:
 - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
 - echo "   CheckHostIP no" >> ~/.ssh/config
 - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-- yes | heroku keys:add ~/.ssh/id_rsa.pub
+- yes | heroku keys:add
 - yes | git push -f heroku master
 install:
 - gem install heroku
-- gem install selenium-webdriver
+#- gem install selenium-webdriver
