@@ -15,7 +15,7 @@ before_install:
 install:
 - gem install heroku
 after_success:
-- ./gradlew selenium
+#- ./gradlew selenium
 - ./gradlew cobertura
 - echo "Host heroku.com" >> ~/.ssh/config
 - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
