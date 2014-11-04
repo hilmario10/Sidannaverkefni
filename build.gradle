@@ -77,8 +77,8 @@ task selenium(type: Test, dependsOn: installApp) {
 }
 
 task seleniumXvfb(type: Test, dependsOn: installApp) {
-    testClassesDir = sourceSets.selenium.output.classesDir
-    classpath = sourceSets.selenium.runtimeClasspath
+    testClassesDir = sourceSets.seleniumXvfb.output.classesDir
+    classpath = sourceSets.seleniumXvfb.runtimeClasspath
 
     environment "DISPLAY", ":99"
 
