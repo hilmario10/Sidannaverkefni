@@ -6,8 +6,7 @@ env:
  - secure: oY8RqEfKLt8yT21HHL2gti8uFpma0dKQK2XgJ/pO4ipzDCCd7t7aP46+qYylPAskIWqA5hATINVpHk2De/NtdBaIZGyrncv1wSPF5B24lIeeqAKApln4lDCl2mhMw0pe8r2ORhCuCPj7KIyIVJoa2EGwtw8C71quYJcT8oqW1r0=
 before_deploy:
 #- ./gradlew check
-- ./gradlew seleniumXvfb
-- ./gradlew cobertura
+
 - sh bin/b4dploy
 before_install:
 - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
@@ -16,6 +15,8 @@ before_install:
 install:
 - gem install heroku
 after_success:
+- ./gradlew seleniumXvfb
+- ./gradlew cobertura
 - echo "Host heroku.com" >> ~/.ssh/config
 - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
 - echo "   CheckHostIP no" >> ~/.ssh/config
